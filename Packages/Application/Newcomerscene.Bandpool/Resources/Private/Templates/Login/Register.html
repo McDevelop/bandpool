@@ -1,0 +1,17 @@
+<f:layout name="Default" />
+  
+<f:section name="Title">Index view of Standard controller</f:section>
+
+<f:section name="Content">
+    <h1>FLOW3  - Registration</h1>
+  
+    <f:flashMessages />
+  
+    <f:form action="create" controller="Login" method="post" name="loginform">
+        <label>User:</label><f:form.textfield name="name" />
+        <label>Pass:</label><f:form.password name="pass" />
+        <label>Pass repeat:</label><f:form.password name="pass2" />
+        <f:form.submit value="Login" />
+    </f:form>
+  
+</f:section>
