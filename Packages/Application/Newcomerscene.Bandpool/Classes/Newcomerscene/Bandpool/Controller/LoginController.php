@@ -56,7 +56,7 @@ class LoginController extends \TYPO3\Flow\Mvc\Controller\ActionController {
     /**
      * @return void
      */
-    public function registerAction() {
+    public function registerAction() {	
         // do nothing more than display the register form
     }
   
@@ -66,9 +66,8 @@ class LoginController extends \TYPO3\Flow\Mvc\Controller\ActionController {
      * @param string $pass
      * @param string $pass2
      */
-    public function createAction($name, $pass, $pass2) {
-  
-        $defaultRole = 'Visitor';
+    public function createAction($name, $pass, $pass2) {	
+        //$defaultRole = array(0 =>'Visitor');
   
         if($name == '' || strlen($name) < 3) {
             $this->flashMessageContainer->add('Username too short or empty');
@@ -77,9 +76,18 @@ class LoginController extends \TYPO3\Flow\Mvc\Controller\ActionController {
             $this->flashMessageContainer->add('Password too short or does not match');
             $this->redirect('register', 'Login');
         } else {
-  
+			$identifier = $name;
+			$password = $pass;
+			$roles = 'Visitor';
+			$authenticationProviderName = 'DefaultProvider';
+
+			//$account = $this->accountFactory->createAccountWithPassword($identifier, $password, $roles, $authenticationProviderName);
+			//$this->accountRepository->add($account);
+		
+		
             // create a account with password an add it to the accountRepository
-            $account = $this->accountFactory->createAccountWithPassword($name, $pass, array($defaultRole));
+            $account = $this->accountFactory->createAccountWithPassword($name, $pass, $roles,$authenticationProviderName);
+		
             $this->accountRepository->add($account);
   
             // add a message and redirect to the login form
