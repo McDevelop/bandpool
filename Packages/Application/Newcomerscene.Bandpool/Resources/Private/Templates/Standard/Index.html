@@ -15,4 +15,16 @@
 	
 	Hier gehts zum Login:
 	<f:link.action action="index" controller="Login">Zum Login</f:link.action>
+	
+	
+	
+	
+	<f:form action="create" controller="Image" enctype="multipart/form-data">
+		<f:form.upload name="newImage" />
+		<br />
+		<f:form.submit value="upload file"/>
+	</f:form>
+	
+	
+	
 </f:section>
