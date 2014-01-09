@@ -1,0 +1,44 @@
+#                                                                        #
+# Example Settings                                                       #
+#                                                                        #
+# This file contains settings for various parts of the application.      #
+# Copy this file to Settings.yaml, and adjust as necessary.              #
+#                                                                        #
+# Please refer to the default settings file(s) or the manuals for        #
+# possible configuration options.                                        #
+#                                                                        #
+
+TYPO3:
+  Flow:
+    security:
+      authentication:
+        authenticationStrategy: oneToken
+        providers:
+          DefaultProvider:
+            provider: 'PersistedUsernamePasswordProvider'
+            entryPoint: 'WebRedirect'
+            entryPointOptions:
+              uri: 'admin/authentication'
+    persistence:
+     backendOptions:
+      dbname: 'flow3'
+      user: 'root'
+      password: ''
+    
+#TYPO3:
+#  Flow:
+#    persistence:
+#       backendOptions:
+#         dataSourceName: 'mysql:dbname=flow3;host:127.0.0.1'
+#         username: root
+#         password: 
+      
+#TYPO3CR:
+
+ #The storage backend configuration
+#  storage:
+#    backend: 'F3\TYPO3CR\Storage\Backend\PDO'
+#    backendOptions:
+#      dataSourceName: 'mysql:host=localhost;dbname=flow3_test'
+#      username: root
+#      password:
