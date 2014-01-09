@@ -2,6 +2,12 @@
 /Data/
 /Packages/Framework/
 /Packages/Libraries/
+/Configuration/Development/
+/Configuration/Production/
+/Configuration/Testing/
+/Configuration/PackageStates.php
+/Configuration/README
+/Configuration/Settings.yaml.example
 /Web/
 /bin/
 /Readme.txt
