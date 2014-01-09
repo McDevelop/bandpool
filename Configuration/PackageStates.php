@@ -2,7 +2,7 @@
 # PackageStates.php
 
 # This file is maintained by Flow's package management. Although you can edit it
-# manually, you should rather use the command line commasdadnds for maintaining packages.
+# manually, you should rather use the command line commands for maintaining packages.
 # You'll find detailed information about the typo3.flow:package:* commands in their
 # respective help screens.
 
