@@ -9,8 +9,7 @@ namespace Newcomerscene\Bandpool\Controller;
 
 use TYPO3\Flow\Annotations as Flow;
 
-class ImageController extends \TYPO3\Flow\Mvc\Controller\ActionController{
-	
-       // Allgemeine Uploads werden hier gemacht. Im Moment noch im Controller der einzelnen Basen
+class ImageController extends \TYPO3\Flow\Mvc\Controller\ActionController
+{
+    // Allgemeine Uploads werden hier gemacht. Im Moment noch im Controller der einzelnen Basen
 }
-?>

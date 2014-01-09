@@ -29,59 +29,61 @@ use TYPO3\Flow\Annotations as Flow;
  *
  * @Flow\Entity
  */
-class Image {
+class Image
+{
+    /**
+     * @var string
+     * @Flow\Validate(type="StringLength", options={ "maximum"=100 })
+     * @ORM\Column(length=100)
+     */
+    protected $title;
 
-	/**
-	 * @var string
-	 * @Flow\Validate(type="StringLength", options={ "maximum"=100 })
-	 * @ORM\Column(length=100)
-	 */
-	protected $title;
+    /**
+     * @var \TYPO3\Flow\Resource\Resource
+     * @ORM\ManyToOne
+     * FLOW3\Validate(type="NotEmpty")
+     */
+    protected $originalResource;
 
-	/**
-	 * @var \TYPO3\Flow\Resource\Resource
-	 * @ORM\ManyToOne
-	 * FLOW3\Validate(type="NotEmpty")
-	 */
-	protected $originalResource;
+    /**
+     * Sets the title
+     *
+     * @param string $title
+     * @return void
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 
-	/**
-	 * Sets the title
-	 *
-	 * @param string $title
-	 * @return void
-	 */
-	public function setTitle($title) {
-		$this->title = $title;
-	}
+    /**
+     * Gets the title
+     *
+     * @return string The title
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
 
-	/**
-	 * Gets the title
-	 *
-	 * @return string The title
-	 */
-	public function getTitle() {
-		return $this->title;
-	}
+    /**
+     * Sets the original resource
+     *
+     * @param \TYPO3\Flow\Resource\Resource $originalResource
+     * @return void
+     */
+    public function setOriginalResource(\TYPO3\Flow\Resource\Resource $originalResource)
+    {
+        $this->originalResource = $originalResource;
+    }
 
-	/**
-	 * Sets the original resource
-	 *
-	 * @param \TYPO3\Flow\Resource\Resource $originalResource
-	 * @return void
-	 */
-	public function setOriginalResource(\TYPO3\Flow\Resource\Resource $originalResource) {
-		$this->originalResource = $originalResource;
-	}
-
-	/**
-	 * Returns the original resource
-	 *
-	 * @return \TYPO3\Flow\Resource\Resource $originalResource
-	 */
-	public function getOriginalResource() {
-		return $this->originalResource;
-	}
+    /**
+     * Returns the original resource
+     *
+     * @return \TYPO3\Flow\Resource\Resource $originalResource
+     */
+    public function getOriginalResource()
+    {
+        return $this->originalResource;
+    }
 }
-
-?>
