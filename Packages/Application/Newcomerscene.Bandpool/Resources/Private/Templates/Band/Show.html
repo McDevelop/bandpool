@@ -9,9 +9,15 @@
     Hier gehts zum Login:
     <f:link.action action="show" controller="Login">Zum Login</f:link.action>
 
-
-    Show das Image her:
-    <f:if condition="{band.image.originalResource}">		
+	<br /><br />
+	
+	Hier Registrierst du dich:
+    <f:link.action action="index" controller="Radio">Registration</f:link.action>
+	<br /><br />
+	
+    
+    <f:if condition="{band.image.originalResource}">	
+        Show das Image her:	
         <img src="{f:uri.resource(resource: band.image.originalResource)}" />
     </f:if>
 
