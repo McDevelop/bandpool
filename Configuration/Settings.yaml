@@ -20,10 +20,12 @@ TYPO3:
             entryPointOptions:
               uri: 'admin/authentication'
     persistence:
-     backendOptions:
-      dbname: 'flow3'
-      user: 'root'
-      password: ''
+      backendOptions:
+        dbname: 'flow3'
+        user: 'root'
+        password: ''
+    core:
+      phpBinaryPathAndFilename: 'C:/xampp/php/php.exe'
     
 #TYPO3:
 #  Flow:
