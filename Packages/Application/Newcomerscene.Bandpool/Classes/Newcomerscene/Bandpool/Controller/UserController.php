@@ -123,7 +123,7 @@ class UserController extends \TYPO3\Flow\Mvc\Controller\ActionController
             $this->addFlashMessage('Benutzername zu kurz');
             $this->redirect('new', 'User');
         } elseif ($pass == '' || $pass != $pass2) {
-            $this->addFlashMessage('Passwort leer oder stimmt nicht �berein');
+            $this->addFlashMessage('Passwort leer oder stimmt nicht überein');
             $this->redirect('new', 'User');
         } else {
             // create a account with password an add it to the accountRepository
@@ -163,7 +163,7 @@ class UserController extends \TYPO3\Flow\Mvc\Controller\ActionController
     {
         if ( ((!empty($pass) && !empty($pass2))) ) {
             if ($pass != $pass2) {
-                $this->addFlashMessage('Die Passw�rter stimmen nicht �berein', "Fehler", "Error");
+                $this->addFlashMessage('Die Passwörter stimmen nicht überein', "Fehler", "Error");
                 $this->redirect("edit", NULL, NULL, array("user" => $user));
             } else {
                 $roles = array();
@@ -192,7 +192,7 @@ class UserController extends \TYPO3\Flow\Mvc\Controller\ActionController
     public function deleteAction(\Newcomerscene\Bandpool\Domain\Model\User $user)
     {
         $this->userRepository->remove($user);
-        $this->addFlashMessage('Der Benutzer '.$user->getAccount()->getAccountIdentifier().' wurde gel�scht.', "Benutzer gel�scht", "OK");
+        $this->addFlashMessage('Der Benutzer '.$user->getAccount()->getAccountIdentifier().' wurde gelöscht.', "Benutzer gelöscht", "OK");
         $this->redirect("list");
     }
 }
