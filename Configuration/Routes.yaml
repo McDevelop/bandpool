@@ -15,7 +15,7 @@
   uriPattern: ''
   defaults:
     '@package':    'Newcomerscene.Bandpool'
-    '@controller': 'Band'
+    '@controller': 'Profile'
     '@action':     'show'
     '@format':     'html'	
   
