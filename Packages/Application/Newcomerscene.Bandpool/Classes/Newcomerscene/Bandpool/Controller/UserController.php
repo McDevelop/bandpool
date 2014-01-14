@@ -6,7 +6,10 @@ namespace Newcomerscene\Bandpool\Controller;
  
 use TYPO3\Flow\Annotations as Flow;
  
-
+/*                                                                        *
+ * This script belongs to the TYPO3 Flow package "Newcomerscene.Bandpool".*
+ *                                                                        *
+ *                                                                        */
 class UserController extends \TYPO3\Flow\Mvc\Controller\ActionController
 {
  
@@ -60,15 +63,16 @@ class UserController extends \TYPO3\Flow\Mvc\Controller\ActionController
      */
     public function initializeAction()
 	{
-        if($this->authenticationManager->isAuthenticated()===FALSE){
-            $this->redirect("index", "Login");
-        }
-        $authenticationTokens = $this->securityContext->getAuthenticationTokensOfType('TYPO3\Flow\Security\Authentication\Token\UsernamePassword');
+        if($this->authenticationManager->isAuthenticated()===TRUE){
+            $authenticationTokens = $this->securityContext->getAuthenticationTokensOfType('TYPO3\Flow\Security\Authentication\Token\UsernamePassword');
             if(count($authenticationTokens) === 1) {
                 $account = $authenticationTokens[0]->getAccount();
                 $this->user = $this->userRepository->findByAccount($account)->getFirst();
             }
+			//$this->redirect("index", "Login");
         }
+        
+    }
        
     public function initializeView(\TYPO3\Flow\Mvc\View\ViewInterface $view)
 	{
@@ -106,6 +110,16 @@ class UserController extends \TYPO3\Flow\Mvc\Controller\ActionController
 	{
         $this->view->assign("user", $user);
     }
+	
+	/**
+     * @return void
+     */
+    public function registerAction() {
+        // do nothing more than display the register form
+		
+		
+		
+    }
        
     /**
      * createAction
@@ -117,7 +131,7 @@ class UserController extends \TYPO3\Flow\Mvc\Controller\ActionController
      * @return void
      *
      */
-    public function createAction($username, $pass, $pass2, $role, \Newcomerscene\Bandpool\Domain\Model\User $user)
+    /*public function createAction($username, $pass, $pass2, $role, \Newcomerscene\Bandpool\Domain\Model\User $user)
 	{
                
         if($username == '' || strlen($username) < 3) {
@@ -143,7 +157,56 @@ class UserController extends \TYPO3\Flow\Mvc\Controller\ActionController
         //$this->addFlashMessage("Der neue Benutzer ".$user->getFirstname()." wurde gespeichert.", "Speichern OK", "OK");
         //$this->redirect("list");
     }      
-       
+    */
+	/**
+     * save the registration
+     * @param string $name
+     * @param string $pass
+     * @param string $pass2
+     */
+    public function createAction($name, $pass, $pass2) {
+ 
+		$roles[] = new \TYPO3\Flow\Security\Policy\Role("Visitor");
+		
+		$account = new \TYPO3\Flow\Security\Account();
+        $account->setAccountIdentifier("McDevelop");
+        $account->setCredentialsSource($this->hashService->hashPassword("testtest"));
+        $account->setAuthenticationProviderName("DefaultProvider");
+        $account->setRoles($roles);
+
+		$this->accountRepository->add($account);
+		
+ 
+ 
+ 
+ 
+        /*$defaultRole = 'Visitor';
+ 
+        if($name == '' || strlen($name) < 3) {
+            $this->flashMessageContainer->addMessage(new \TYPO3\Flow\Error\Error('Username too short or empty'));
+            $this->redirect('register', 'User');
+        } else if($pass == '' || $pass != $pass2) {
+            $this->flashMessageContainer->addMessage(new \TYPO3\Flow\Error\Error('Password too short or does not match'));
+            $this->redirect('register', 'User');
+        } else {
+ 
+            // create a account with password an add it to the accountRepository
+            $account = $this->accountFactory->createAccountWithPassword($name, $pass, array(0 => $defaultRole));
+            $this->accountRepository->add($account);
+ 
+            // add a message and redirect to the login form
+            $this->flashMessageContainer->addMessage(new \TYPO3\Flow\Error\Error('Account created. Please login.'));
+            $this->redirect('index');
+        }
+ 
+        // redirect to the login form
+        
+		
+		*/
+		$this->redirect('show', 'Login');
+    }
+
+	
     /**
      * editAction
      * @param \Newcomerscene\Bandpool\Domain\Model\User
