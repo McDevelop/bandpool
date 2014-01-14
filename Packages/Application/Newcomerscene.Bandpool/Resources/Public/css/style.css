@@ -37,24 +37,24 @@ header {
     margin: 10px 0 0 20px;
 }
 
-#content_bg {
+#contentBackground {
     background-image: url('http://bandpool/_Resources/Static/Packages/Newcomerscene.Bandpool/img/flashground1.png');
     background-repeat: repeat-y;
 }
 
-#content_area {
+#contentArea {
     width: 940px;
     margin: 0 auto;
 }
 
-#profile_header {
+#profileHeader {
     height: 30px;
     border-bottom: 1px solid #cccccc;
     position: relative;
     margin-bottom: 20px;
 }
 
-#profile_name {
+#profileName {
     color: #333333;
     font-size: 34px;
     font-family: 'Open Sans Condensed', sans-serif;
@@ -63,7 +63,7 @@ header {
     top: -20px;
 }
 
-.profile_box {
+.profileBox {
     float: left;
     width: 100%;
     padding: 9px;
@@ -78,28 +78,28 @@ header {
     font-family: Arial, sans-serif;
 }
 
-#profile_support_box {
+#profileSupportBox {
     position: absolute;
     width: 355px;
     right: 0;
     bottom: -15px;
 }
 
-#profile_support {
+#profileSupport {
     position: absolute;
     right: 0;
     bottom: -24px;
 }
 
-#profile_support a:hover {
+#profileSupport a:hover {
     opacity: 0.8;
 }
 
-#profile_support img {
+#profileSupport img {
     float: left;
 }
 
-#profile_support #first {
+#profileSupport #first {
     margin-right: 5px;
 }
 
@@ -114,16 +114,16 @@ header {
     margin: 20px 0 0 20px;
 }
 
-.one_row {
+.oneRow {
     float: left;
     width: 275px;
 }
 
-.first_row {
+.firstRow {
     margin-right: 15px;
 }
 
-.profile_song_links {
+.profileSongLink {
     float: right;
     font-family: Arial, sans-serif;
     font-size: 12px;
@@ -131,43 +131,43 @@ header {
     text-decoration: none;
 }
 
-.profile_song_links:hover {
+.profileSongLink:hover {
     color: #363636;
 }
 
-#profile_song_link_first {
+#profileSongLinksFirst {
     border-right: 1px solid #333333;
     padding-right: 5px;
     margin-right: 6px;
 }
 
-#profile_song_list {
+#profileSongList {
     list-style: none;
     margin-top: 7px;
 }
 
-#profile_song_list li {
+#profileSongList li {
     height: 55px;
     border-top: 1px dotted #cccccc;
 }
 
-#profile_song_list li .play {
+#profileSongList li .play {
     float: left;
     width: 32px;
     height: 32px;
     margin: 11px 10px 0 0;
 }
 
-#profile_song_list li .play:hover {
+#profileSongList li .play:hover {
     opacity: 0.8;
 }
 
-#profile_song_list li .title {
+#profileSongList li .title {
     float: left;
     margin-top: 12px;
 }
 
-#profile_song_list li h2 {
+#profileSongList li h2 {
     color: #333333;
     font-size: 15px;
     font-family: Arial, sans-serif;
@@ -175,20 +175,20 @@ header {
     padding: 0;
 }
 
-#profile_song_list li .dropdown {
+#profileSongList li .dropdown {
     float: right;
     width: 24px;
     height: 24px;
     margin-top: 15px;
 }
 
-#profile_song_list li ul {
+#profileSongList li ul {
     float: left;
     list-style: none;
     margin-top: 5px;
 }
 
-#profile_song_list li ul li {
+#profileSongList li ul li {
     float: left;
     line-height: 5px;
     height: 9px;
@@ -197,13 +197,13 @@ header {
     margin-right: 5px;
 }
 
-#profile_song_list li ul #last {
+#profileSongList li ul #last {
     border: none;
     padding: 0;
     margin: 0;
 }
 
-#profile_song_list li ul li a {
+#profileSongList li ul li a {
     color: #1f93de;
     font-size: 11px;
     font-family: Arial, sans-serif;
@@ -212,11 +212,11 @@ header {
     
 }
 
-#profile_song_list li ul li a:hover {
+#profileSongList li ul li a:hover {
     color: #00436f;
 }
 
-.profile_box h2 {
+.profileBox h2 {
     color: #333333;
     font-size: 15px;
     font-family: 'Open Sans Condensed', sans-serif;
@@ -233,13 +233,13 @@ header {
     line-height: 18px;
 }
 
-#quote_start {
+#quoteStart {
     position: absolute;
     left: 0;
     margin-top: 10px;
 }
 
-#quote_end {
+#quoteEnd {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -264,17 +264,17 @@ header {
 }
 
 #infos li a,
-.chart_info a {
+.chartInfo a {
     color: #1f93de;
     text-decoration: none;
 }
 
 #infos li a:hover,
-.chart_info a:hover {
+.chartInfo a:hover {
     color: #00436f;
 }
 
-#chart_nr {
+#chartNumber {
     float: left;
     background-image: url('http://bandpool/_Resources/Static/Packages/Newcomerscene.Bandpool/img/chart_nr.png');
     height: 38px;
@@ -283,7 +283,7 @@ header {
     position: relative;
 }
 
-#chart_nr span {
+#chartNumber span {
     color: #ffffff;
     font-size: 21px;
     font-family: 'Open Sans Condensed', sans-serif;
@@ -293,7 +293,7 @@ header {
     line-height: 38px;
 }
 
-.chart_info {
+.chartInfo {
     float: left;
     color: #333333;
     font-size: 15px;
@@ -301,22 +301,22 @@ header {
     margin-top: 9px;
 }
 
-.chart_info #title {
+.chartInfo #title {
     padding-bottom: 3px;
     margin-bottom: 3px;
     border-bottom: 1px solid #d2d2d2;
 }
 
-.chart_info span {
+.chartInfo span {
     font-size: 13px;
 }
 
-#video_box_title {
+#videoBoxTitle {
     float: left;
     width: 100%;
 }
 
-#video_link {
+#videoLink {
     float: right;
     margin: 4px 0 -1px 0;
     color: #8c8c8c;
@@ -325,7 +325,7 @@ header {
     text-decoration: none;
 }
 
-#video_link:hover {
+#videoLink:hover {
     color: #363636;
 }
 
@@ -334,23 +334,23 @@ header {
     text-align: center;
 }
 
-#big_video {
+#bigVideo {
     width: 322px;
     height: 180px;
 }
 
-.small_videos {
+.smallVideos {
     float: left;
     width: 100px;
     height: 60px;
     margin-top: 5px;
 }
 
-#first_video {
+#firstVideo {
     margin-left: 6px;
 }
 
-#middle_video {
+#middleVideo {
     margin: 5px 11px 0 11px;
 }
 
