@@ -1,0 +1,359 @@
+/* For modern browsers */
+.clearfix:before,
+.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after {
+    clear:both;
+}
+/* For IE 6/7 (trigger hasLayout) */
+.clearfix {
+    zoom:1;
+}
+
+strong, b {
+    font-weight: bold;
+}
+
+body {
+    background-color: #aaaaaa;
+}
+
+.wrapper {
+    width: 1010px;
+    margin: 0 auto;
+}
+
+header {
+    height: 155px;
+    background-image: url('http://bandpool/_Resources/Static/Packages/Newcomerscene.Bandpool/img/header.png');
+    background-repeat: no-repeat;
+}
+
+#logo {
+    width: 265px;
+    height: 65px;
+    margin: 10px 0 0 20px;
+}
+
+#content_bg {
+    background-image: url('http://bandpool/_Resources/Static/Packages/Newcomerscene.Bandpool/img/flashground1.png');
+    background-repeat: repeat-y;
+}
+
+#content_area {
+    width: 940px;
+    margin: 0 auto;
+}
+
+#profile_header {
+    height: 30px;
+    border-bottom: 1px solid #cccccc;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#profile_name {
+    color: #333333;
+    font-size: 34px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: -20px;
+}
+
+.profile_box {
+    float: left;
+    width: 100%;
+    padding: 9px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    box-shadow: 0 0 2px 0 #bbbbbb;
+    margin-bottom: 15px;
+    color: #333333;
+    font-size: 13px;
+    font-family: Arial, sans-serif;
+}
+
+#profile_support_box {
+    position: absolute;
+    width: 355px;
+    right: 0;
+    bottom: -15px;
+}
+
+#profile_support {
+    position: absolute;
+    right: 0;
+    bottom: -24px;
+}
+
+#profile_support a:hover {
+    opacity: 0.8;
+}
+
+#profile_support img {
+    float: left;
+}
+
+#profile_support #first {
+    margin-right: 5px;
+}
+
+#left {
+    float: left;
+    width: 565px;
+}
+
+#right {
+    float: left;
+    width: 355px;
+    margin: 20px 0 0 20px;
+}
+
+.one_row {
+    float: left;
+    width: 275px;
+}
+
+.first_row {
+    margin-right: 15px;
+}
+
+.profile_song_links {
+    float: right;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #8c8c8c;
+    text-decoration: none;
+}
+
+.profile_song_links:hover {
+    color: #363636;
+}
+
+#profile_song_link_first {
+    border-right: 1px solid #333333;
+    padding-right: 5px;
+    margin-right: 6px;
+}
+
+#profile_song_list {
+    list-style: none;
+    margin-top: 7px;
+}
+
+#profile_song_list li {
+    height: 55px;
+    border-top: 1px dotted #cccccc;
+}
+
+#profile_song_list li .play {
+    float: left;
+    width: 32px;
+    height: 32px;
+    margin: 11px 10px 0 0;
+}
+
+#profile_song_list li .play:hover {
+    opacity: 0.8;
+}
+
+#profile_song_list li .title {
+    float: left;
+    margin-top: 12px;
+}
+
+#profile_song_list li h2 {
+    color: #333333;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    border: 0;
+    padding: 0;
+}
+
+#profile_song_list li .dropdown {
+    float: right;
+    width: 24px;
+    height: 24px;
+    margin-top: 15px;
+}
+
+#profile_song_list li ul {
+    float: left;
+    list-style: none;
+    margin-top: 5px;
+}
+
+#profile_song_list li ul li {
+    float: left;
+    line-height: 5px;
+    height: 9px;
+    border-right: 1px solid #7d7d7d;
+    border-top: 0;
+    margin-right: 5px;
+}
+
+#profile_song_list li ul #last {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+#profile_song_list li ul li a {
+    color: #1f93de;
+    font-size: 11px;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    padding-right: 4px;
+    
+}
+
+#profile_song_list li ul li a:hover {
+    color: #00436f;
+}
+
+.profile_box h2 {
+    color: #333333;
+    font-size: 15px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    padding-bottom: 8px;
+    border-bottom: 1px dotted #cccccc;
+}
+
+#status {
+    position: relative;
+}
+
+#status blockquote {
+    padding: 10px 22px 5px 22px;
+    line-height: 18px;
+}
+
+#quote_start {
+    position: absolute;
+    left: 0;
+    margin-top: 10px;
+}
+
+#quote_end {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+#infos {
+    list-style: none;
+}
+
+#infos li {
+    margin: 5px 0 5px 0;
+    border-bottom: 1px dotted #cccccc;
+}
+
+#infos .line {
+    line-height: 25px;
+}
+
+#infos #last {
+    border-bottom: 0;
+    line-height: 18px;
+}
+
+#infos li a,
+.chart_info a {
+    color: #1f93de;
+    text-decoration: none;
+}
+
+#infos li a:hover,
+.chart_info a:hover {
+    color: #00436f;
+}
+
+#chart_nr {
+    float: left;
+    background-image: url('http://bandpool/_Resources/Static/Packages/Newcomerscene.Bandpool/img/chart_nr.png');
+    height: 38px;
+    width: 39px;
+    margin: 7px 10px 0 0;
+    position: relative;
+}
+
+#chart_nr span {
+    color: #ffffff;
+    font-size: 21px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    line-height: 38px;
+}
+
+.chart_info {
+    float: left;
+    color: #333333;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+    margin-top: 9px;
+}
+
+.chart_info #title {
+    padding-bottom: 3px;
+    margin-bottom: 3px;
+    border-bottom: 1px solid #d2d2d2;
+}
+
+.chart_info span {
+    font-size: 13px;
+}
+
+#video_box_title {
+    float: left;
+    width: 100%;
+}
+
+#video_link {
+    float: right;
+    margin: 4px 0 -1px 0;
+    color: #8c8c8c;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+}
+
+#video_link:hover {
+    color: #363636;
+}
+
+#videos {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#big_video {
+    width: 322px;
+    height: 180px;
+}
+
+.small_videos {
+    float: left;
+    width: 100px;
+    height: 60px;
+    margin-top: 5px;
+}
+
+#first_video {
+    margin-left: 6px;
+}
+
+#middle_video {
+    margin: 5px 11px 0 11px;
+}
+
+#videos a:hover {
+    opacity: 0.8;
+}
