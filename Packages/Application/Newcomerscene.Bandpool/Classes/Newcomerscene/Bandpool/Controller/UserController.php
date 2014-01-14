@@ -30,7 +30,7 @@ class UserController extends \TYPO3\Flow\Mvc\Controller\ActionController
      * @var \TYPO3\Flow\Security\AccountRepository
      * @Flow\Inject
      */
-    protected $accountRepository;      
+    protected $accountRepository;      	
  
    /**
      * @var Newcomerscene\Bandpool\Domain\Repository\UserRepository
@@ -166,18 +166,27 @@ class UserController extends \TYPO3\Flow\Mvc\Controller\ActionController
      */
     public function createAction($name, $pass, $pass2) {
  
-		$roles[] = new \TYPO3\Flow\Security\Policy\Role("Visitor");
+		//$roles[] = new \TYPO3\Flow\Security\Policy\Role("Visitor");
 		
-		$account = new \TYPO3\Flow\Security\Account();
-        $account->setAccountIdentifier("McDevelop");
-        $account->setCredentialsSource($this->hashService->hashPassword("testtest"));
-        $account->setAuthenticationProviderName("DefaultProvider");
-        $account->setRoles($roles);
+		//$account = new \TYPO3\Flow\Security\Account();
+        //$account->setAccountIdentifier("McDevelop");
+        //$account->setCredentialsSource($this->hashService->hashPassword("testtest"));
+        //$account->setAuthenticationProviderName("DefaultProvider");
+        //$account->setRoles($roles);
 
-		$this->accountRepository->add($account);
+		//$this->accountRepository->add($account);
 		
+		$identifier = 'andi';
+		$password = 'secret';
+		$roles = array('Newcomerscene.Bandpool:Visitor');
+		$authenticationProviderName = 'DefaultProvider';
+
+		$account = $this->accountFactory->createAccountWithPassword($identifier, $password, $roles, $authenticationProviderName);
+		$this->accountRepository->add($account);
  
  
+ 
+		//$newUser = new \Newcomerscene\Bandpool\Domain\Model\User();
  
  
         /*$defaultRole = 'Visitor';
