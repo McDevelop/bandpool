@@ -41,6 +41,7 @@ class LoginController extends \TYPO3\Flow\Mvc\Controller\ActionController
     {
         try {
             $this->authenticationManager->authenticate();
+			$this->addFlashMessage('Hat geklappt!');
             $this->redirect('show', 'Login');
         } catch (\TYPO3\Flow\Security\Exception\AuthenticationRequiredException $exception) {
             $this->addFlashMessage('Wrong username or password.');
@@ -56,6 +57,6 @@ class LoginController extends \TYPO3\Flow\Mvc\Controller\ActionController
     {
         $this->authenticationManager->logout();
         $this->addFlashMessage('Successfully logged out.');
-        $this->redirect('show', 'Band');
+        $this->redirect('show', 'Profile');
     }
 }

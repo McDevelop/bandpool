@@ -3,18 +3,10 @@
 <f:section name="Title">Das ist die Band "{band.name}"</f:section>
 
 <f:section name="Content">
-	
-	<!--
-	Hier gehts zum Login:
-    <f:link.action action="show" controller="Login">Zum Login</f:link.action>
-
-	
-	
-	Hier Registrierst du dich:
-    <f:link.action action="register" controller="User">Registration</f:link.action>
-	<br /><br />
-	
     
+
+	<!--
+
     <f:if condition="{band.image.originalResource}">	
         Show das Image her:	
         <img src="{f:uri.resource(resource: band.image.originalResource)}" />
@@ -41,10 +33,13 @@
 	-->
 	
 	<div class="wrapper">
+	<f:link.action action="show" controller="Login">Zum Login</f:link.action>
+	<f:link.action action="register" controller="Profile">Registration</f:link.action>
         <header>
             <img id="logo" src="Public/img/logo.png" alt="Newcomer Szene" title="Newcomer Szene">
         </header>
         <section id="contentBackground">
+			
             <div id="contentArea" class="clearfix">
                 <div id="profileHeader">
                     <h1 id="profileName"><f:render section="Title" /></h1>

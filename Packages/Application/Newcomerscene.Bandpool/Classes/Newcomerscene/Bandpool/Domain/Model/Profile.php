@@ -10,28 +10,35 @@ use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @Flow\Entity
+ * @Flow\Entity 
+ * @ORM\InheritanceType("SINGLE_TABLE")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({"profile" = "Profile", "Band" = "Band"})
  */
 class Profile
 {
 
     /**
      * @var string
+	 * @ORM\Column(nullable=true)
      */
     protected $country;
 	
 	/**
      * @var string
+	 * @ORM\Column(nullable=true)
      */
     protected $firstName;
 	
 	/**
      * @var string
+	 * @ORM\Column(nullable=true)
      */
     protected $lastName;
 	
     /**
      * @var string
+	 * @ORM\Column(nullable=true)
      */
     protected $name;   
 
@@ -58,6 +65,20 @@ class Profile
      * @ORM\ManyToOne(cascade={"persist"})
      */
     protected $songs;
+	
+	/**
+    * The account
+    * @ORM\ManyToOne(cascade={"all"})
+    * @var \TYPO3\Flow\Security\Account
+    */
+    protected $account;
+	
+	/**
+    * The email    
+    * @var string
+	* @ORM\Column(nullable=true)
+    */
+    protected $email;
 
     /**
      * @return string
@@ -208,5 +229,47 @@ class Profile
     public function setSongs(\Newcomerscene\Bandpool\Domain\Model\Event $songs = NULL)
     {      
         $this->songs = $songs;        
+    }
+	
+	/**
+     * Sets (and adds if necessary) the account.
+     *
+     * @param \TYPO3\Flow\Security\Account $account
+     * @return void
+    */
+    public function setAccount(\TYPO3\Flow\Security\Account $account)
+    {
+        $this->account = $account;
+    }
+
+    /**
+     * Returns the account, if one has been defined.
+     *
+     * @return \TYPO3\Flow\Security\Account $account
+    */
+    public function getAccount()
+    {
+        return $this->account;
+    }
+	
+	/**
+     * Get the Users email
+     *
+     * @return string The Users email
+    */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Sets this Users email
+     *
+     * @param string $email The Users email
+     * @return void
+    */
+    public function setEmail($email)
+    {
+        $this->email = $email;
     }
 }

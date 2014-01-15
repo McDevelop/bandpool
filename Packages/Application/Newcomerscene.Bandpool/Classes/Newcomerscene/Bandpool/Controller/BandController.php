@@ -8,7 +8,7 @@ namespace Newcomerscene\Bandpool\Controller;
 
 use TYPO3\Flow\Annotations as Flow;
 
-class BandController extends \TYPO3\Flow\Mvc\Controller\ActionController
+class BandController extends ProfileController
 {
     /**
     * @var Newcomerscene\Bandpool\Domain\Repository\BandRepository
@@ -38,13 +38,22 @@ class BandController extends \TYPO3\Flow\Mvc\Controller\ActionController
     /**
     * Creates a new band
     *
-    * @param \Newcomerscene\Bandpool\Domain\Model\Band $newImage The new band
+    * @param \TYPO3\Flow\Security\Account $account account
+    * @param string $name Bandname
     * @return void
     */
-    public function createBandAction(\Newcomerscene\Bandpool\Domain\Model\Band $newBand)
+    public function createBandAction(\TYPO3\Flow\Security\Account $account, $name)
     {
+	    $newBand = new \Newcomerscene\Bandpool\Domain\Model\Band();
+		$newBand->setName($name);
+		$newBand->setAccount($account);
+		
         $this->bandRepository->add($newBand);
-        $this->redirect('show', 'Band');
+        
+		
+		// add a message and redirect to the login form
+		$this->flashMessageContainer->addMessage(new \TYPO3\Flow\Error\Error('Account created. Please login.'));
+		$this->redirect('show','Login');
     }
 
     /**

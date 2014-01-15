@@ -22,6 +22,10 @@
                 <f:form.submit value="{f:translate(id: 'authentication.login', package: 'TYPO3.Flow')}" />
             </fieldset>
         </f:form>
+		
+		<f:form action="logout" method="post">
+		    <f:form.submit value="{f:translate(id: 'authentication.logout', package: 'TYPO3.Flow')}" />
+		</f:form>
     </div>
 	
 </f:section>

@@ -16,6 +16,7 @@ class Band extends Profile
 {
     /**
      * @var string
+	 * @ORM\Column(nullable=true)
      */
     protected $genre;
 
