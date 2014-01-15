@@ -357,3 +357,79 @@ header {
 #videos a:hover {
     opacity: 0.8;
 }
+
+.leftSide {
+    width: 540px;
+    float: left;
+}
+
+.avatar {
+    position: relative;
+    width: 540px;
+}
+
+.editAvatar {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+}
+
+.editAvatar a {
+    color: #ffffff;
+    text-shadow: 0 0 2px #333333;
+    text-decoration: none;
+}
+
+.editAvatar a:hover {
+    text-decoration: underline;
+}
+
+.rightSide {
+    width: 375px;
+    float: right;
+}
+
+.contentBox {
+    margin: 0 auto;
+    border: 1px solid transparent;
+    margin-bottom: 15px;
+}
+
+.contentBox:hover {
+    border: 1px solid #676767;
+    box-shadow: 0 0 3px 0 #bbbbbb;
+}
+
+.contentBox p {
+    padding: 20px 10px 10px 10px;
+}
+
+.contentBox ul {
+    padding: 20px 10px 10px;
+}
+
+.contentBox ul li {
+    line-height: 20px;
+}
+
+.headBar {
+    height: 35px;
+    color: #ffffff;
+    background-color: #535353;
+    line-height: 35px;
+    padding-left: 10px;
+}
+
+.headBar span {
+    float: right;
+    margin-right: 10px;
+}
+
+.headBar span a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.headBar span a:hover {
+    text-decoration: underline;
+}
