@@ -21,8 +21,8 @@ class ProfileController extends \TYPO3\Flow\Mvc\Controller\ActionController
      */
     public function showAction()
     {
-        $eineBand = $this->bandRepository->findOneByGenre("rock");
-        $this->view->assign('band',$eineBand);
+        //$eineBand = $this->bandRepository->findOneByGenre("rock");
+        //$this->view->assign('band',$eineBand);
 
         $this->view->assign('foos', array(
             'bar', 'baz'
