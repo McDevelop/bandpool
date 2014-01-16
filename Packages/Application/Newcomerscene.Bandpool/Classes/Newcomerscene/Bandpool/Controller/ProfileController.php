@@ -29,13 +29,13 @@ class ProfileController extends \TYPO3\Flow\Mvc\Controller\ActionController
      */
     protected $authenticationManager;
        
-   /**
+    /**
      * @var \TYPO3\Flow\Security\AccountRepository
      * @Flow\Inject
      */
     protected $accountRepository;      	
  
-   /**
+    /**
      * @var Newcomerscene\Bandpool\Domain\Repository\ProfileRepository
      * @Flow\Inject
      */
@@ -54,9 +54,9 @@ class ProfileController extends \TYPO3\Flow\Mvc\Controller\ActionController
     protected $hashService;
        
     /**
-     * @var Newcomerscene\Bandpool\Domain\Model\User
+     * @var Newcomerscene\Bandpool\Domain\Model\Profile
      */
-    private $user;
+    private $profile;
        
        
  
@@ -64,22 +64,21 @@ class ProfileController extends \TYPO3\Flow\Mvc\Controller\ActionController
      * initializeAction
      * @return void
      */
-    public function initializeAction()
+    /*public function initializeAction()
 	{
         if($this->authenticationManager->isAuthenticated()===TRUE){
             $authenticationTokens = $this->securityContext->getAuthenticationTokensOfType('TYPO3\Flow\Security\Authentication\Token\UsernamePassword');
             if(count($authenticationTokens) === 1) {
                 $account = $authenticationTokens[0]->getAccount();
-                $this->user = $this->profileRepository->findByAccount($account)->getFirst();
+                $this->profile = $this->profileRepository->findByAccount($account)->getFirst();
 				$this->redirect("show", "Profile");
             }			
-        }
-        
-    }
+        }        
+    }*/
        
     public function initializeView(\TYPO3\Flow\Mvc\View\ViewInterface $view)
 	{
-        $view->assign('userinfo', $this->user);
+        $view->assign('userinfo', $this->profile);
         $view->assign("navIndex", 3);
     }      
  
@@ -95,6 +94,16 @@ class ProfileController extends \TYPO3\Flow\Mvc\Controller\ActionController
             'bar', 'baz'
         ));
     }
+	
+	/**
+	 * View fürs Backend der Profile
+	 * @param object $profile
+	 * @return void
+	 */
+	public function viewAction($profile)
+	{
+	    $this->view->assign('profile', $profile);
+	}
        
     /**
      * List action

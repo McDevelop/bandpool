@@ -78,7 +78,14 @@ class Profile
     * @var string
 	* @ORM\Column(nullable=true)
     */
-    protected $email;
+    protected $email;	
+	
+	/**
+    * The typeAsString    
+    * @var string
+	* @ORM\Column(nullable=true)
+    */
+    protected $typeAsString;
 
     /**
      * @return string
@@ -271,5 +278,26 @@ class Profile
     public function setEmail($email)
     {
         $this->email = $email;
+    }
+	
+	/**
+     * Get the Users typeAsString
+     *
+     * @return string The Users typeAsString
+    */
+    public function getTypeAsString()
+    {
+        return $this->typeAsString;
+    }
+	
+	/**
+     * Sets this Users typeAsString
+     *
+     * @param string $typeAsString The Users typeAsString
+     * @return void
+    */
+    public function setTypeAsString($typeAsString)
+    {
+        $this->typeAsString = $typeAsString;
     }
 }

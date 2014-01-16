@@ -17,7 +17,36 @@ class LoginController extends \TYPO3\Flow\Mvc\Controller\ActionController
      * @var \TYPO3\Flow\Security\Authentication\AuthenticationManagerInterface
      */
     protected $authenticationManager;
+	
+	/**
+     * @var \TYPO3\Flow\Security\Context
+     * @Flow\Inject
+     *
+     */
+    protected $securityContext;
+	
+	/**
+     * @var Newcomerscene\Bandpool\Domain\Repository\ProfileRepository
+     * @Flow\Inject
+     */
+    protected $profileRepository; 
 
+	/**
+     * initializeAction
+     * @return void
+     */
+    /*public function initializeAction()
+	{
+        if($this->authenticationManager->isAuthenticated()===TRUE){
+            $authenticationTokens = $this->securityContext->getAuthenticationTokensOfType('TYPO3\Flow\Security\Authentication\Token\UsernamePassword');
+            if(count($authenticationTokens) === 1) {
+                $account = $authenticationTokens[0]->getAccount();
+                $this->profile = $this->profileRepository->findByAccount($account)->getFirst();
+				$this->redirect("show", "Profile");
+            }			
+        }        
+    }
+	*/
     /**
      *
      *
@@ -40,13 +69,31 @@ class LoginController extends \TYPO3\Flow\Mvc\Controller\ActionController
     public function authenticateAction()
     {
         try {
-            $this->authenticationManager->authenticate();
-			$this->addFlashMessage('Hat geklappt!');
-            $this->redirect('show', 'Login');
+            $this->authenticationManager->authenticate();			
+            $authenticationTokens = $this->securityContext->getAuthenticationTokensOfType('TYPO3\Flow\Security\Authentication\Token\UsernamePassword');
+            if(count($authenticationTokens) === 1) {
+                $account = $authenticationTokens[0]->getAccount();
+					
+			    // Account vom User auslesen
+				$accId = $account->getAccountIdentifier();
+				$profileAcc = $this->profileRepository->findOneByName($accId);
+					
+				// Zur Identifizierung des Users
+				$identifyCatgory = $profileAcc->getTypeAsString();
+		
+            }
+            // View zum Backend des entsprechenden Users
+		    $this->redirect("viewBackend", $identifyCatgory, 'Newcomerscene.Bandpool', array(lcfirst($identifyCatgory) => $profileAcc));					
+            
         } catch (\TYPO3\Flow\Security\Exception\AuthenticationRequiredException $exception) {
             $this->addFlashMessage('Wrong username or password.');
             throw $exception;
+			echo 'teddst';
+				exit;
+		    $this->redirect("show","Login");
         }
+		
+        
     }
 
     /**

@@ -34,6 +34,17 @@ class BandController extends ProfileController
             'bar', 'baz'
         ));
     }
+	
+	/**
+	 * View im Backend für die Band
+	 *
+	 * @param \Newcomerscene\Bandpool\Domain\Model\Band $band
+	 * @return void
+	 */
+	public function viewBackendAction(\Newcomerscene\Bandpool\Domain\Model\Band $band)
+	{
+	   $this->view->assign('profile', $band);
+	}
 
     /**
     * Creates a new band
@@ -47,7 +58,7 @@ class BandController extends ProfileController
 	    $newBand = new \Newcomerscene\Bandpool\Domain\Model\Band();
 		$newBand->setName($name);
 		$newBand->setAccount($account);
-		
+		$newBand->setTypeAsString('Band');
         $this->bandRepository->add($newBand);
         
 		
