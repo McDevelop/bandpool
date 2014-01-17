@@ -20,6 +20,22 @@ body {
     background-color: #aaaaaa;
 }
 
+#topBar {
+    height: 46px;
+    line-height: 44px;
+    background-color: #383838;
+    box-shadow: 0 0 2px 3px #777777;
+    position: relative;
+}
+
+#topBar .wrapper a {
+    color: #ffffff;
+}
+
+#topBar .wrapper a:hover {
+    color: #cccccc;
+}
+
 .wrapper {
     width: 1010px;
     margin: 0 auto;
