@@ -15,51 +15,51 @@ class ProfileController extends \TYPO3\Flow\Mvc\Controller\ActionController
     * @Flow\Inject
     */
     protected $bandRepository;
-	 
+
     /**
      * @var \TYPO3\Flow\Security\Context
      * @Flow\Inject
      *
      */
     protected $securityContext;
-       
+
     /**
      * @var \TYPO3\Flow\Security\Authentication\AuthenticationManagerInterface
      * @Flow\Inject
      */
     protected $authenticationManager;
-       
+
     /**
      * @var \TYPO3\Flow\Security\AccountRepository
      * @Flow\Inject
      */
     protected $accountRepository;      	
- 
+
     /**
      * @var Newcomerscene\Bandpool\Domain\Repository\ProfileRepository
      * @Flow\Inject
      */
     protected $profileRepository; 
- 
+
     /**
      * @var \TYPO3\Flow\Security\AccountFactory
      * @Flow\Inject
      */
     protected $accountFactory; 
-       
+
     /**
      * @var \TYPO3\Flow\Security\Cryptography\HashService
      * @Flow\Inject
      */
     protected $hashService;
-       
+
     /**
      * @var Newcomerscene\Bandpool\Domain\Model\Profile
      */
     private $profile;
-       
-       
- 
+
+
+
     /**
      * initializeAction
      * @return void
@@ -75,13 +75,13 @@ class ProfileController extends \TYPO3\Flow\Mvc\Controller\ActionController
             }			
         }        
     }*/
-       
+
     public function initializeView(\TYPO3\Flow\Mvc\View\ViewInterface $view)
-	{
+    {
         $view->assign('userinfo', $this->profile);
         $view->assign("navIndex", 3);
-    }      
- 
+    }
+
     /**
      * @return void
      */
@@ -94,48 +94,49 @@ class ProfileController extends \TYPO3\Flow\Mvc\Controller\ActionController
             'bar', 'baz'
         ));
     }
-	
-	/**
-	 * View fürs Backend der Profile
-	 * @param object $profile
-	 * @return void
-	 */
-	public function viewAction($profile)
-	{
-	    $this->view->assign('profile', $profile);
-	}
-       
+
+    /**
+     * View fï¿½rs Backend der Profile
+     * @param object $profile
+     * @return void
+     */
+    public function viewAction($profile)
+    {
+        $this->view->assign('profile', $profile);
+    }
+
     /**
      * List action
      *
      * @return void
      */
     public function listAction()
-	{
+    {
         $users = $this->profileRepository->findAll();
         $this->view->assign("users", $users);
     }
-       
+
     /**
      * newAction
      * @param \Newcomerscene\Bandpool\Domain\Model\User $user
      * @return void
      */
     public function newAction(\Newcomerscene\Bandpool\Domain\Model\User $user=NULL)
-	{
+    {
         $this->view->assign("user", $user);
     }
-	
-	/**
+
+    /**
      * @return void
      */
-    public function registerAction() {
+    public function registerAction()
+    {
         // do nothing more than display the register form
-		
-		
-		
+
+
+
     }
-       
+
     /**
      * createAction
      * @param string $username
@@ -153,7 +154,7 @@ class ProfileController extends \TYPO3\Flow\Mvc\Controller\ActionController
             $this->addFlashMessage('Benutzername zu kurz');
             $this->redirect('new', 'User');
         } else if($pass == '' || $pass != $pass2) {
-            $this->addFlashMessage('Passwort leer oder stimmt nicht überein');
+            $this->addFlashMessage('Passwort leer oder stimmt nicht ï¿½berein');
             $this->redirect('new', 'User');
         } else {
  
@@ -173,42 +174,41 @@ class ProfileController extends \TYPO3\Flow\Mvc\Controller\ActionController
         //$this->redirect("list");
     }      
     */
-	/**
+
+    /**
      * save the registration
      * @param string $name
      * @param string $category
      * @param string $pass
      * @param string $pass2
      */
-    public function createAction($name, $category, $pass, $pass2) {		
-        
-		switch ($category) {
-		    case 'Band' : $role = 'Newcomerscene.Bandpool:Visitor';
+    public function createAction($name, $category, $pass, $pass2)
+    {
+        switch ($category) {
+            case 'Band' : $role = 'Newcomerscene.Bandpool:Visitor';
             break;
             default: $role = 'Newcomerscene.Bandpool:Visitor';			
-		}       
- 
-        // Prüfe Name und Passwort
-        if($name == '' || strlen($name) < 3) {
+        }
+
+        // PrÃ¼fe Name und Passwort
+        if ($name == '' || strlen($name) < 3) {
             $this->flashMessageContainer->addMessage(new \TYPO3\Flow\Error\Error('Username too short or empty'));
             $this->redirect('register', 'User');
-        } else if($pass == '' || $pass != $pass2) {
+        } elseif ($pass == '' || $pass != $pass2) {
             $this->flashMessageContainer->addMessage(new \TYPO3\Flow\Error\Error('Password too short or does not match'));
             $this->redirect('register', 'User');
         } else {
- 
             // create an account with password an add it to the accountRepository
             $account = $this->accountFactory->createAccountWithPassword($name, $pass, array($role));
             $this->accountRepository->add($account);
-			$this->persistenceManager->persistAll();
-			
-			// add a profile in its category
-			$this->forward('createBand', $category, 'Newcomerscene.Bandpool', array("account" => $account, "name" => $name));	
-            
+            $this->persistenceManager->persistAll();
+
+            // add a profile in its category
+            $this->forward('createBand', $category, 'Newcomerscene.Bandpool', array("account" => $account, "name" => $name));
         }
- 
+
         // redirect to the login form		
-		$this->redirect('register', 'Profile');
+        $this->redirect('register', 'Profile');
     }
 
 	
@@ -218,7 +218,7 @@ class ProfileController extends \TYPO3\Flow\Mvc\Controller\ActionController
      * @return void
      */
     public function editAction(\Newcomerscene\Bandpool\Domain\Model\User $user)
-	{
+    {
         $this->view->assign("user", $user);
     }    
        
@@ -231,17 +231,17 @@ class ProfileController extends \TYPO3\Flow\Mvc\Controller\ActionController
      * @return void
      */
     public function updateAction(\Newcomerscene\Bandpool\Domain\Model\User $user, $pass, $pass2, $role)
-	{
-        if( ((!empty($pass) && !empty($pass2)))  ){
-            if($pass != $pass2){
-                $this->addFlashMessage('Die Passwörter stimmen nicht überein', "Fehler", "Error");
+    {
+        if ( ((!empty($pass) && !empty($pass2))) ) {
+            if ($pass != $pass2) {
+                $this->addFlashMessage('Die PasswÃ¶rter stimmen nicht Ã¼berein', "Fehler", "Error");
                 $this->redirect("edit", NULL, NULL, array("user" => $user));
             } else {
                 $roles = array();
                 foreach (array($role) as $r) {
                     $roles[] = new \TYPO3\Flow\Security\Policy\Role($r);
                 }
-               
+
                 $account = $this->accountRepository->findByAccountIdentifierAndAuthenticationProviderName($user->getAccount()->getAccountIdentifier(),"DefaultProvider");
                 $account->setCredentialsSource($this->hashService->hashPassword($pass, "default"));
                 $account->setRoles($roles);
@@ -249,12 +249,12 @@ class ProfileController extends \TYPO3\Flow\Mvc\Controller\ActionController
                 $this->addFlashMessage('Account wurde gespeichert', "Speichern OK", "OK");
             }
         }
-               
+
         $this->profileRepository->update($user);
         $this->addFlashMessage('Benutzerprofil '. $user->getAccount()->getAccountIdentifier() .' wurde gespeichert.');
         $this->redirect("edit", NULL, NULL, array("user" => $user));
     }
- 
+
     /**
      * deleteAction
      * @param \Newcomerscene\Bandpool\Domain\Model\User $user
@@ -263,7 +263,7 @@ class ProfileController extends \TYPO3\Flow\Mvc\Controller\ActionController
     public function deleteAction(\Newcomerscene\Bandpool\Domain\Model\User $user)
 	{
         $this->profileRepository->remove($user);
-        $this->addFlashMessage('Der Benutzer '.$user->getAccount()->getAccountIdentifier().' wurde gelöscht.', "Benutzer gelöscht", "OK");
+        $this->addFlashMessage('Der Benutzer '.$user->getAccount()->getAccountIdentifier().' wurde gelÃ¶scht.', "Benutzer gelÃ¶scht", "OK");
         $this->redirect("list");
     }
 }
