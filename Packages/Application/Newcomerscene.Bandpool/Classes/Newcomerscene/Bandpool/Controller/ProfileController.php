@@ -96,7 +96,7 @@ class ProfileController extends \TYPO3\Flow\Mvc\Controller\ActionController
     }
 
     /**
-     * View f�rs Backend der Profile
+     * View fürs Backend der Profile
      * @param object $profile
      * @return void
      */
@@ -154,7 +154,7 @@ class ProfileController extends \TYPO3\Flow\Mvc\Controller\ActionController
             $this->addFlashMessage('Benutzername zu kurz');
             $this->redirect('new', 'User');
         } else if($pass == '' || $pass != $pass2) {
-            $this->addFlashMessage('Passwort leer oder stimmt nicht �berein');
+            $this->addFlashMessage('Passwort leer oder stimmt nicht überein');
             $this->redirect('new', 'User');
         } else {
  
