@@ -61,6 +61,7 @@ header {
 #contentArea {
     width: 940px;
     margin: 0 auto;
+    padding-bottom: 15px;
 }
 
 #profileHeader {
@@ -213,7 +214,7 @@ header {
     margin-right: 5px;
 }
 
-#profileSongList li ul #last {
+#profileSongList li ul .last {
     border: none;
     padding: 0;
     margin: 0;
