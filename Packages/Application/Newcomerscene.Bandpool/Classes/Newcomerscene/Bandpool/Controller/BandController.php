@@ -45,6 +45,16 @@ class BandController extends ProfileController
 	{
 	   $this->view->assign('profile', $band);
 	}
+	
+	/**
+	 * Editiert die Info der Band im Backend
+	 *
+	 * @param \Newcomerscene\Bandpool\Domain\Model\Band $band
+	 */
+	public function editStandardInfoAction($band)
+	{	    
+	    $this->view->assign('profile', $band);
+	}
 
     /**
     * Creates a new band
