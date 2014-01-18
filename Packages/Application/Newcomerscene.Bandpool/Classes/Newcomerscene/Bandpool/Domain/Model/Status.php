@@ -1,10 +1,10 @@
 <?php
 namespace Newcomerscene\Bandpool\Domain\Model;
 
-/*                                                                        *
- * This script belongs to the TYPO3 Flow package "Newcomerscene.Bandpool".*
- *                                                                        *
- *                                                                        */
+/*                                                                         *
+ * This script belongs to the TYPO3 Flow package "Newcomerscene.Bandpool". *
+ *                                                                         *
+ *                                                                         */
 
 use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
@@ -20,27 +20,27 @@ class Status
      */
     protected $image;
 
-	/**
-	 * @var string
-	 * @ORM\OrderBy({"date" = "DESC"})
-	 */
+    /**
+     * @var string
+     * @ORM\OrderBy({"date" = "DESC"})
+     */
     protected $content;
-	
-	/**
-	 * @Flow\Identity
-	 * @var \DateTime
-	 */
-	protected $date;
-	
-	/**
-	 * Constructs this status
-	 */
-	public function __construct()
-	{
-		$this->date = new \DateTime();
+
+    /**
+     * @Flow\Identity
+     * @var \DateTime
+     */
+    protected $date;
+
+    /**
+     * Constructs this status
+     */
+    public function __construct()
+    {
+        $this->date = new \DateTime();
     }
-	
-	/**
+
+    /**
      * Getter for image
      *
      * @return \Newcomerscene\Bandpool\Domain\Model\Image
@@ -62,8 +62,8 @@ class Status
             $this->image = $image;
         }
     }
-	
-	/**
+
+    /**
      * @return string
      */
     public function getContent()
@@ -79,23 +79,25 @@ class Status
     {
         $this->content = $content;
     }
-	
-	/**
-	 * Setter for date
-	 *
-	 * @param \DateTime $date
-	 * @return void
-	 */
-	public function setDate(\DateTime $date) {
-		$this->date = $date;
-	}
 
-	/**
-	 * Getter for date
-	 *
-	 * @return \DateTime
-	 */
-	public function getDate() {
-		return $this->date;
-	}
+    /**
+     * Setter for date
+     *
+     * @param \DateTime $date
+     * @return void
+     */
+    public function setDate(\DateTime $date)
+    {
+        $this->date = $date;
+    }
+
+    /**
+     * Getter for date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
 }
