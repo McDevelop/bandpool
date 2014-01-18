@@ -379,6 +379,10 @@ header {
     text-align: center;
 }
 
+.profilePictures a:hover {
+    opacity: 0.8;
+}
+
 .profilePicture {
     height: 56px;
     width: 84px;
