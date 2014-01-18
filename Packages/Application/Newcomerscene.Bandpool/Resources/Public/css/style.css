@@ -281,13 +281,15 @@ header {
 }
 
 #infos li a,
-.chartInfo a {
+.chartInfo a,
+.newsText p a {
     color: #1f93de;
     text-decoration: none;
 }
 
 #infos li a:hover,
-.chartInfo a:hover {
+.chartInfo a:hover,
+.newsText p a:hover {
     color: #00436f;
 }
 
@@ -333,7 +335,7 @@ header {
     width: 100%;
 }
 
-#videoLink {
+.rightLink {
     float: right;
     margin: 4px 0 -1px 0;
     color: #8c8c8c;
@@ -342,7 +344,7 @@ header {
     text-decoration: none;
 }
 
-#videoLink:hover {
+.rightLink:hover {
     color: #363636;
 }
 
@@ -386,7 +388,7 @@ header {
 .profilePicture {
     height: 56px;
     width: 84px;
-    margin-right: 5px;
+    margin-right: 6px;
 }
 
 .profilePictureMore {
@@ -398,6 +400,99 @@ header {
 .twitter-share-button,
 .g-plus {
     margin-right: 10px;
+}
+
+.linkImage {
+    margin: 10px 3px 0 0;
+    height: 30px;
+    width: 30px;
+}
+
+.diskografie {
+    list-style: none
+}
+
+.diskografie #last {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.diskografie li {
+    height: 60px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #cccccc;
+}
+
+.diskografie li img {
+    float: left;
+    height: 50px;
+    width: 50px;
+    margin: 10px 10px 0 0;
+}
+
+.diskDescription {
+    float: left;
+    margin-top: 14px;
+}
+
+.diskDescription a {
+    color: #1F93DE;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+}
+
+.diskDescription a:hover {
+    color: #00436F;
+}
+
+.diskDescription p {
+    margin-top: 5px;
+    color: #7c7c7c;
+    font-size: 13px;
+    font-family: Arial, sans-serif;
+}
+
+.news {
+    list-style: none;
+}
+
+.news li {
+    height: 65px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dotted #cccccc;
+}
+
+.news li img {
+    float: left;
+    width: 101px;
+    height: 61px;
+    margin-right: 10px;
+}
+
+#lastNews {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.newsText {
+    float: left;
+    width: 212px;
+}
+
+.newsText strong {
+    line-height: 18px;
+    color: #333333;
+    font-size: 15px;
+    font-family: Arial, sans-serif;
+}
+
+.newsText p {
+    margin-top: 4px;
+    color: #7c7c7c;
+    font-size: 13px;
+    font-family: Arial, sans-serif;
 }
 
 .leftSide {
