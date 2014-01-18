@@ -17,74 +17,73 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Profile
 {
+    /**
+     * @var string
+     * @ORM\Column(nullable=true)
+     */
+    protected $country;
 
     /**
      * @var string
-	 * @ORM\Column(nullable=true)
-     */
-    protected $country;
-	
-	/**
-     * @var string
-	 * @ORM\Column(nullable=true)
+     * @ORM\Column(nullable=true)
      */
     protected $firstName;
-	
-	/**
-     * @var string
-	 * @ORM\Column(nullable=true)
-     */
-    protected $lastName;
-	
+
     /**
      * @var string
-	 * @ORM\Column(nullable=true)
+     * @ORM\Column(nullable=true)
      */
-    protected $name;   
+    protected $lastName;
+
+    /**
+     * @var string
+     * @ORM\Column(nullable=true)
+     */
+    protected $name;
 
     /**
      * @var \Newcomerscene\Bandpool\Domain\Model\Image
      * @ORM\ManyToOne(cascade={"persist"})
      */
     protected $image;
-	
-	/**
+
+    /**
      * @var \Newcomerscene\Bandpool\Domain\Model\Status
      * @ORM\ManyToOne(cascade={"persist"})
      */
     protected $status;
-	
-	/**
+
+    /**
      * @var \Newcomerscene\Bandpool\Domain\Model\Event
      * @ORM\ManyToOne(cascade={"persist"})
      */
     protected $events;
-	
-	/**
+
+    /**
      * @var \Newcomerscene\Bandpool\Domain\Model\Song
      * @ORM\ManyToOne(cascade={"persist"})
      */
     protected $songs;
-	
-	/**
-    * The account
-    * @ORM\ManyToOne(cascade={"all"})
-    * @var \TYPO3\Flow\Security\Account
-    */
+
+    /**
+     * The account
+     * @ORM\ManyToOne(cascade={"all"})
+     * @var \TYPO3\Flow\Security\Account
+     */
     protected $account;
-	
-	/**
-    * The email    
-    * @var string
-	* @ORM\Column(nullable=true)
-    */
-    protected $email;	
-	
-	/**
-    * The typeAsString    
-    * @var string
-	* @ORM\Column(nullable=true)
-    */
+
+    /**
+     * The email    
+     * @var string
+     * @ORM\Column(nullable=true)
+     */
+    protected $email;
+
+    /**
+     * The typeAsString    
+     * @var string
+     * @ORM\Column(nullable=true)
+     */
     protected $typeAsString;
 
     /**
@@ -103,8 +102,8 @@ class Profile
     {
         $this->name = $name;
     }
-	
-	/**
+
+    /**
      * @return string
      */
     public function getCountry()
@@ -120,8 +119,8 @@ class Profile
     {
         $this->country = $country;
     }
-	
-	/**
+
+    /**
      * @return string
      */
     public function getFirstName()
@@ -137,8 +136,8 @@ class Profile
     {
         $this->firstName = $firstName;
     }
-	
-	/**
+
+    /**
      * @return string
      */
     public function getLastName()
@@ -177,8 +176,8 @@ class Profile
             $this->image = $image;
         }
     }
-	
-	/**
+
+    /**
      * Getter for status
      *
      * @return \Newcomerscene\Bandpool\Domain\Model\Status
@@ -195,10 +194,10 @@ class Profile
      */
     public function setStatus(\Newcomerscene\Bandpool\Domain\Model\Status $status = NULL)
     {      
-        $this->status = $status;        
+        $this->status = $status;
     }
-	
-	/**
+
+    /**
      * Getter for events
      *
      * @return \Newcomerscene\Bandpool\Domain\Model\Event
@@ -215,10 +214,10 @@ class Profile
      */
     public function setEvents(\Newcomerscene\Bandpool\Domain\Model\Event $events = NULL)
     {      
-        $this->events = $events;        
+        $this->events = $events;
     }
-	
-	/**
+
+    /**
      * Getter for songs
      *
      * @return \Newcomerscene\Bandpool\Domain\Model\Song
@@ -235,10 +234,10 @@ class Profile
      */
     public function setSongs(\Newcomerscene\Bandpool\Domain\Model\Event $songs = NULL)
     {      
-        $this->songs = $songs;        
+        $this->songs = $songs;
     }
-	
-	/**
+
+    /**
      * Sets (and adds if necessary) the account.
      *
      * @param \TYPO3\Flow\Security\Account $account
@@ -258,8 +257,8 @@ class Profile
     {
         return $this->account;
     }
-	
-	/**
+
+    /**
      * Get the Users email
      *
      * @return string The Users email
@@ -279,8 +278,8 @@ class Profile
     {
         $this->email = $email;
     }
-	
-	/**
+
+    /**
      * Get the Users typeAsString
      *
      * @return string The Users typeAsString
@@ -289,8 +288,8 @@ class Profile
     {
         return $this->typeAsString;
     }
-	
-	/**
+
+    /**
      * Sets this Users typeAsString
      *
      * @param string $typeAsString The Users typeAsString

@@ -1,20 +1,38 @@
-<f:layout name="Default" />
+<f:layout name="Profile" />
 
 <f:section name="Title">Register</f:section>
 
 <f:section name="Content">
-    <div id="loginscreen">
-        <h1>Flow - Registration</h1>
- 
-		<f:flashMessages />
-	 
-		<f:form action="create" controller="Profile" method="post" name="loginform">		    
-			<label>User:</label><f:form.textfield name="name" /><br />
-			<label>Kategorie</label><f:form.select name="category" options="{Band: 'Band'}" /><br />
-			<label>Pass:</label><f:form.password name="pass" /><br />
-			<label>Pass repeat:</label><f:form.password name="pass2" /><br />
-			
-			<f:form.submit value="Login" />
-		</f:form>
+
+    <div id="topBar">
+        <div class="wrapper">
+            <f:link.action action="show" controller="Login">Zum Login</f:link.action>
+        </div>
     </div>
+    <div class="wrapper">
+        <header>
+            <img id="logo" src="Public/img/logo.png" alt="Newcomer Szene" title="Newcomer Szene">
+        </header>
+        <section id="contentBackground">
+            <div id="contentArea" class="clearfix">
+                <div id="profileHeader">
+                    <h1 id="profileName">
+                        <f:render section="Title" />
+                    </h1>
+                </div>
+
+                <p><f:flashMessages class="flashmessages" /></p>
+
+                <f:form action="create" controller="Profile" method="post" name="loginform">		    
+                    <label>User:</label><f:form.textfield name="name" /><br />
+                    <label>Kategorie</label><f:form.select name="category" options="{Band: 'Band'}" /><br />
+                    <label>Pass:</label><f:form.password name="pass" /><br />
+                    <label>Pass repeat:</label><f:form.password name="pass2" /><br />
+
+                    <f:form.submit value="Login" />
+                </f:form>
+            </div>
+        </section>
+    </div>
+
 </f:section>

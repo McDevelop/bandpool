@@ -20,6 +20,22 @@ body {
     background-color: #aaaaaa;
 }
 
+#topBar {
+    height: 46px;
+    line-height: 44px;
+    background-color: #383838;
+    box-shadow: 0 0 2px 3px #777777;
+    position: relative;
+}
+
+#topBar .wrapper a {
+    color: #ffffff;
+}
+
+#topBar .wrapper a:hover {
+    color: #cccccc;
+}
+
 .wrapper {
     width: 1010px;
     margin: 0 auto;
@@ -45,6 +61,7 @@ header {
 #contentArea {
     width: 940px;
     margin: 0 auto;
+    padding-bottom: 15px;
 }
 
 #profileHeader {
@@ -135,7 +152,7 @@ header {
     color: #363636;
 }
 
-#profileSongLinksFirst {
+#profileSongLinkFirst {
     border-right: 1px solid #333333;
     padding-right: 5px;
     margin-right: 6px;
@@ -197,7 +214,7 @@ header {
     margin-right: 5px;
 }
 
-#profileSongList li ul #last {
+#profileSongList li ul .last {
     border: none;
     padding: 0;
     margin: 0;

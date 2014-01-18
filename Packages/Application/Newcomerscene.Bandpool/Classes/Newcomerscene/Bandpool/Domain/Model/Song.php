@@ -1,10 +1,10 @@
 <?php
 namespace Newcomerscene\Bandpool\Domain\Model;
 
-/*                                                                        *
- * This script belongs to the TYPO3 Flow package "Newcomerscene.Bandpool".*
- *                                                                        *
- *                                                                        */
+/*                                                                         *
+ * This script belongs to the TYPO3 Flow package "Newcomerscene.Bandpool". *
+ *                                                                         *
+ *                                                                         */
 
 use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
@@ -15,56 +15,58 @@ use Doctrine\ORM\Mapping as ORM;
 class Song
 {
     /**
-	 * @Flow\Identity
-	 * @var \DateTime
-	 */
-	protected $crdate;
-	
-	/**
-	 * @var string	 
-	 */
+     * @Flow\Identity
+     * @var \DateTime
+     */
+    protected $crdate;
+
+    /**
+     * @var string	 
+     */
     protected $description;
-	
-	/**
-	 * @var string	 
-	 */
+
+    /**
+     * @var string	 
+     */
     protected $title;
-	
-	/**
+
+    /**
      * @var \TYPO3\Flow\Resource\Resource
      * @ORM\ManyToOne
      * FLOW3\Validate(type="NotEmpty")
      */
     protected $originalResource;
-	
-	/**
-	 * Constructs this status
-	 */
-	public function __construct()
-	{
-		$this->crdate = new \DateTime();
+
+    /**
+     * Constructs this status
+     */
+    public function __construct()
+    {
+        $this->crdate = new \DateTime();
     }
-	
-	/**
-	 * Setter for crdate
-	 *
-	 * @param \DateTime $crdate
-	 * @return void
-	 */
-	public function setCrdate(\DateTime $crdate) {
-		$this->crdate = $crdate;
-	}
-	
-	/**
-	 * Getter for crdate
-	 *
-	 * @return \DateTime
-	 */
-	public function getCrdate() {
-		return $this->crdate;
-	}
-	
-	/**
+
+    /**
+     * Setter for crdate
+     *
+     * @param \DateTime $crdate
+     * @return void
+     */
+    public function setCrdate(\DateTime $crdate)
+    {
+        $this->crdate = $crdate;
+    }
+
+    /**
+     * Getter for crdate
+     *
+     * @return \DateTime
+     */
+    public function getCrdate()
+    {
+        return $this->crdate;
+    }
+
+    /**
      * @return string
      */
     public function getDescrition()
@@ -80,8 +82,8 @@ class Song
     {
         $this->description = $description;
     }
-	
-	/**
+
+    /**
      * @return string
      */
     public function getTitle()
@@ -97,8 +99,8 @@ class Song
     {
         $this->title = $title;
     }
-	
-	/**
+
+    /**
      * Sets the original resource
      *
      * @param \TYPO3\Flow\Resource\Resource $originalResource

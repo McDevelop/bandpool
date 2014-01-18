@@ -3,16 +3,14 @@
 <f:section name="Title">Das ist die Band "{band.name}"</f:section>
 
 <f:section name="Content">
-    
 
-	<!--
+
+    <!--
 
     <f:if condition="{band.image.originalResource}">	
         Show das Image her:	
         <img src="{f:uri.resource(resource: band.image.originalResource)}" />
     </f:if>
-
-
 
     <f:form method="post" action="editBandPhoto" controller="Band" object="{band}" name="band" enctype="multipart/form-data">
 
@@ -22,27 +20,32 @@
         <f:form.submit value="Submit upload"/>
     </f:form>
 
-
     <f:form method="post" action="createBand" controller="Band" object="{newBand}" name="newBand" >
         <f:form.textfield property="name" value="My Band Name" />
-        <f:form.textfield property="genre" value="Genre ausw�hlen" />
+        <f:form.textfield property="genre" value="Genre auswählen" />
 
         <f:form.submit value="Submit"/>
     </f:form>
-	
-	-->
-	
-	<div class="wrapper">
-	<f:link.action action="show" controller="Login">Zum Login</f:link.action>
-	<f:link.action action="register" controller="Profile">Registration</f:link.action>
+
+    -->
+
+
+    <div id="topBar">
+        <div class="wrapper">
+            <f:link.action action="show" controller="Login">Zum Login</f:link.action>
+            <f:link.action action="register" controller="Profile">Zur Registrierung</f:link.action>
+        </div>
+    </div>
+    <div class="wrapper">
         <header>
             <img id="logo" src="Public/img/logo.png" alt="Newcomer Szene" title="Newcomer Szene">
         </header>
         <section id="contentBackground">
-			
             <div id="contentArea" class="clearfix">
                 <div id="profileHeader">
-                    <h1 id="profileName"><f:render section="Title" /></h1>
+                    <h1 id="profileName">
+                        <f:render section="Title" />
+                    </h1>
                     <div id="profileSupportBox">
                         <div class="profileBox" id="profileSupport">
                             <a href="#">
@@ -122,7 +125,7 @@
                                         <li><a href="">Teilen</a></li>
                                         <li><a href="">Song kaufen</a></li>
                                         <li><a href="">Lyrics</a></li>
-                                        <li id="last"><a href="">Download</a></li>
+                                        <li class="last"><a href="">Download</a></li>
                                     </ul>
                                 </div>
                                 <img class="dropdown" src="Public/img/dropdown.png" alt="Dropdown" title="Dropdown">
@@ -137,7 +140,7 @@
                                         <li><a href="">Teilen</a></li>
                                         <li><a href="">Song kaufen</a></li>
                                         <li><a href="">Lyrics</a></li>
-                                        <li id="last"><a href="">Download</a></li>
+                                        <li class="last"><a href="">Download</a></li>
                                     </ul>
                                 </div>
                                 <img class="dropdown" src="Public/img/dropdown.png" alt="Dropdown" title="Dropdown">
@@ -151,7 +154,7 @@
                                     <ul>
                                         <li><a href="">Teilen</a></li>
                                         <li><a href="">Song kaufen</a></li>
-                                        <li id="last"><a href="">Lyrics</a></li>
+                                        <li class="last"><a href="">Lyrics</a></li>
                                     </ul>
                                 </div>
                                 <img class="dropdown" src="Public/img/dropdown.png" alt="Dropdown" title="Dropdown">
@@ -165,7 +168,7 @@
                                     <ul>
                                         <li><a href="">Teilen</a></li>
                                         <li><a href="">Song kaufen</a></li>
-                                        <li id="last"><a href="">Lyrics</a></li>
+                                        <li class="last"><a href="">Lyrics</a></li>
                                     </ul>
                                 </div>
                                 <img class="dropdown" src="Public/img/dropdown.png" alt="Dropdown" title="Dropdown">
@@ -178,7 +181,7 @@
                                     <h2>Too Into You</h2>
                                     <ul>
                                         <li><a href="">Teilen</a></li>
-                                        <li id="last"><a href="">Song kaufen</a></li>
+                                        <li class="last"><a href="">Song kaufen</a></li>
                                     </ul>
                                 </div>
                                 <img class="dropdown" src="Public/img/dropdown.png" alt="Dropdown" title="Dropdown">
@@ -193,7 +196,7 @@
                                         <li><a href="">Teilen</a></li>
                                         <li><a href="">Song kaufen</a></li>
                                         <li><a href="">Lyrics</a></li>
-                                        <li id="last"><a href="">Download</a></li>
+                                        <li class="last"><a href="">Download</a></li>
                                     </ul>
                                 </div>
                                 <img class="dropdown" src="Public/img/dropdown.png" alt="Dropdown" title="Dropdown">
@@ -231,6 +234,5 @@
             </div>
         </section>
     </div>
-	
-	
+
 </f:section>
