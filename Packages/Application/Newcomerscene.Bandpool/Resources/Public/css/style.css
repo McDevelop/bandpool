@@ -68,7 +68,7 @@ header {
     height: 30px;
     border-bottom: 1px solid #cccccc;
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 #profileName {
@@ -89,7 +89,7 @@ header {
     background-color: #ffffff;
     box-sizing: border-box;
     box-shadow: 0 0 2px 0 #bbbbbb;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: #333333;
     font-size: 13px;
     font-family: Arial, sans-serif;
@@ -105,7 +105,7 @@ header {
 #profileSupport {
     position: absolute;
     right: 0;
-    bottom: -24px;
+    bottom: -19px;
 }
 
 #profileSupport a:hover {
@@ -128,7 +128,7 @@ header {
 #right {
     float: left;
     width: 355px;
-    margin: 20px 0 0 20px;
+    margin: 24px 0 0 20px;
 }
 
 .oneRow {
@@ -164,7 +164,7 @@ header {
 }
 
 #profileSongList li {
-    height: 55px;
+    height: 56px;
     border-top: 1px dotted #cccccc;
 }
 
@@ -376,11 +376,16 @@ header {
 }
 
 .profilePictures {
-    height: 56px;
-    width: 84px;
+    text-align: center;
 }
 
-.profilePicturesMore {
+.profilePicture {
+    height: 56px;
+    width: 84px;
+    margin-right: 5px;
+}
+
+.profilePictureMore {
     height: 56px;
     width: 74px;
 }
