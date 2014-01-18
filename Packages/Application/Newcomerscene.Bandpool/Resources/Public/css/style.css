@@ -375,6 +375,22 @@ header {
     opacity: 0.8;
 }
 
+.profilePictures {
+    height: 56px;
+    width: 84px;
+}
+
+.profilePicturesMore {
+    height: 56px;
+    width: 74px;
+}
+
+.fb-like,
+.twitter-share-button,
+.g-plus {
+    margin-right: 10px;
+}
+
 .leftSide {
     width: 540px;
     float: left;

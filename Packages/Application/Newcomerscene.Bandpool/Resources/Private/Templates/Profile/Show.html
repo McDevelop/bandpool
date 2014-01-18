@@ -62,10 +62,18 @@
                         <img src="Public/img/band_avatar.jpg" alt="Profilbild" title="Profilbild">
                     </div>
                     <div class="profileBox">
-                        
+                        <img class="profilePictures" src="Public/img/pic1.jpg" alt="Bild 1" title="Bild 1">
+                        <img class="profilePictures" src="Public/img/pic2.jpg" alt="Bild 2" title="Bild 2">
+                        <img class="profilePictures" src="Public/img/pic3.jpg" alt="Bild 3" title="Bild 3">
+                        <img class="profilePictures" src="Public/img/pic4.jpg" alt="Bild 4" title="Bild 4">
+                        <img class="profilePictures" src="Public/img/pic5.jpg" alt="Bild 5" title="Bild 5">
+                        <img class="profilePicturesMore" src="Public/img/pic_more.jpg" alt="Mehr Bilder" title="Mehr Bilder">
                     </div>
                     <div class="profileBox">
-                        
+                        <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://twitter.com" data-text="Tweet Text" data-via="via" data-lang="de" data-related="recommend" data-count="none" data-hashtags="hashtag">Twittern</a>
+                        <span class="g-plus"><div class="g-plusone" data-size="medium" data-annotation="none" data-width="300" data-href="http://google.de"></div></span>
+                        <a class="pinit" href="//www.pinterest.com/pin/create/button/" data-pin-do="buttonBookmark"></a>
                     </div>
                     <div class="clearfix">
                         <div class="oneRow firstRow">
@@ -234,5 +242,28 @@
             </div>
         </section>
     </div>
+    <!-- Facebook Like-Button -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/de_DE/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <!-- Twitter Tweet-Button -->
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    <!-- Google +1-Button -->
+    <script type="text/javascript">
+      window.___gcfg = {lang: 'de'};
+
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/platform.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+    </script>
+    <!-- Pinterest Pinit-Button -->
+    <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
 
 </f:section>
