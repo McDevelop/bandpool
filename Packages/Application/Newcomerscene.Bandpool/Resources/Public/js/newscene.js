@@ -26,9 +26,7 @@ scene = {
 
 		
 		initOeffnen: function() {
-			$(document).off('click', '.beFormularOeffnen').on('click', '.beFormularOeffnen', function(e) {
-			    
-				log('jaa');
+			$(document).off('click', '.beFormularOeffnen').on('click', '.beFormularOeffnen', function(e) {			
 			
 				e.preventDefault();
 				
@@ -70,8 +68,7 @@ scene = {
 									return;
 								}
 							} catch (e) {
-								zielelement.html(data).addClass('inBearbeitung');
-								scene.formular.initFormElemente();
+								zielelement.html(data).addClass('inBearbeitung');								
 								scene.zeug.verlassenWarnung.on();
 							}
 						},
@@ -185,8 +182,7 @@ scene = {
 						}
 					}
 				});			
-			}
-			// Ansonsten das Formular so abschicken
+			// Ansonsten das Formular so abschicken			
 			} else  {
 				that.submit();
 			}
