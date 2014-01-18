@@ -23,7 +23,7 @@
 
                 <p><f:flashMessages class="flashmessages" /></p>
 
-                <f:form action="create" controller="Profile" method="post" name="loginform">		    
+                <f:form action="create" controller="Profile" method="post" name="loginform" absolute="TRUE">		    
                     <label>User:</label><f:form.textfield name="name" /><br />
                     <label>Kategorie</label><f:form.select name="category" options="{Band: 'Band'}" /><br />
                     <label>Pass:</label><f:form.password name="pass" /><br />
