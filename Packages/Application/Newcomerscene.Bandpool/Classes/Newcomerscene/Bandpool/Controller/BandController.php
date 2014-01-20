@@ -34,55 +34,54 @@ class BandController extends ProfileController
             'bar', 'baz'
         ));
     }
-	
-	/**
-	 * View im Backend für die Band
-	 *
-	 * @param \Newcomerscene\Bandpool\Domain\Model\Band $band
-	 * @return void
-	 */
-	public function viewBackendAction(\Newcomerscene\Bandpool\Domain\Model\Band $band)
-	{
-	   $this->view->assign('profile', $band);
-	}
-	
-	/**
-	 * Editiert die Info der Band im Backend
-	 *
-	 * @param \Newcomerscene\Bandpool\Domain\Model\Band $band
-	 */
-	public function editStandardInfoAction($band)
-	{	    
-	    $this->view->assign('profile', $band);
-	}
 
     /**
-    * Creates a new band
-    *
-    * @param \TYPO3\Flow\Security\Account $account account
-    * @param string $name Bandname
-    * @return void
-    */
-    public function createBandAction(\TYPO3\Flow\Security\Account $account, $name)
+     * View im Backend fï¿½r die Band
+     *
+     * @param \Newcomerscene\Bandpool\Domain\Model\Band $band
+     * @return void
+     */
+    public function viewBackendAction(\Newcomerscene\Bandpool\Domain\Model\Band $band)
     {
-	    $newBand = new \Newcomerscene\Bandpool\Domain\Model\Band();
-		$newBand->setName($name);
-		$newBand->setAccount($account);
-		$newBand->setTypeAsString('Band');
-        $this->bandRepository->add($newBand);
-        
-		
-		// add a message and redirect to the login form
-		$this->flashMessageContainer->addMessage(new \TYPO3\Flow\Error\Error('Account created. Please login.'));
-		$this->redirect('show','Login');
+        $this->view->assign('profile', $band);
     }
 
     /**
-    * Creates a new image
-    *
-    * @param \Newcomerscene\Bandpool\Domain\Model\Band $band Edit the Bandphoto
-    * @return void
-    */
+     * Editiert die Info der Band im Backend
+     *
+     * @param \Newcomerscene\Bandpool\Domain\Model\Band $band
+     */
+    public function editStandardInfoAction($band)
+    {	    
+        $this->view->assign('profile', $band);
+    }
+
+    /**
+     * Creates a new band
+     *
+     * @param \TYPO3\Flow\Security\Account $account account
+     * @param string $name Bandname
+     * @return void
+     */
+    public function createBandAction(\TYPO3\Flow\Security\Account $account, $name)
+    {
+        $newBand = new \Newcomerscene\Bandpool\Domain\Model\Band();
+        $newBand->setName($name);
+        $newBand->setAccount($account);
+        $newBand->setTypeAsString('Band');
+        $this->bandRepository->add($newBand);
+
+        // add a message and redirect to the login form
+        $this->flashMessageContainer->addMessage(new \TYPO3\Flow\Error\Error('Account created. Please login.'));
+        $this->redirect('show','Login');
+    }
+
+    /**
+     * Creates a new image
+     *
+     * @param \Newcomerscene\Bandpool\Domain\Model\Band $band Edit the Bandphoto
+     * @return void
+     */
     public function editBandPhotoAction(\Newcomerscene\Bandpool\Domain\Model\Band $band)
     {
         #$image = $band->getImage();
@@ -90,5 +89,5 @@ class BandController extends ProfileController
 
         $this->bandRepository->update($band);
         $this->redirect('show', 'Band');
-	}
+    }
 }
