@@ -101,19 +101,16 @@ scene = {
 			});
 		}, // Ende scene.formular.initOeffnen
 
-		initAbschicken: function() {			
-			$(document).off('submit', '.beFormular').on('submit', '.beFormular', function(e) {
-				e.preventDefault();
-				scene.formular.abschicken( $(this) );
-			});			
+		initAbschicken: function() {	
+                    log('test');
+                    $(document).off('submit', '.beFormular').on('submit', '.beFormular', function(e) {
+                            e.preventDefault();
+                            scene.formular.abschicken( $(this) );
+                    });			
 		}, // Ende scene.formular.initAbschicken
 
 		// Parameter: that - JQuery Object des Formulars
-		abschicken: function(that) {
-			// tinyMCE Inhalt in textarea übernehmen
-			tinyMCE.triggerSave();
-			// alle disabled-Attribute auf Dropdowns entfernen
-			that.find('select[disabled]').removeAttr('disabled');
+		abschicken: function(that) {	
 
 			var thatButton = that.find('.beFormularAbschicken');
 			var zielelement = $(thatButton.data('zielelement'));
@@ -124,64 +121,64 @@ scene = {
 
 			// Wenn das Formular per Ajax abgeschickt werden soll.
 			if (thatButton.data('uri')) {
-				$.ajax({
-					url: thatButton.data('uri'),
-					data: that.serialize(),
-					type: 'POST',
-					cache: false,
-					statusCode: {
-						404: function() {
-							window.location.reload();
-						},
-						0: function() {
-							window.location.reload();
-						}
-					},
-					success: function(data) {
-						// Wenn ein Objekt zurückkommt, dann wird die Seite neu geladen.
-						try {
-							var dataObj = jQuery.parseJSON(data);
+                            $.ajax({
+                                url: thatButton.data('uri'),
+                                data: that.serialize(),
+                                type: 'POST',
+                                cache: false,
+                                statusCode: {
+                                        404: function() {
+                                                window.location.reload();
+                                        },
+                                        0: function() {
+                                                window.location.reload();
+                                        }
+                                },
+                                success: function(data) {
+                                        // Wenn ein Objekt zurï¿½ckkommt, dann wird die Seite neu geladen.
+                                        try {
+                                                var dataObj = jQuery.parseJSON(data);
 
-							// Redirect wenn ausgeloggt
-							if (dataObj.status === 'logout') {
-								window.location.reload();
-							}
+                                                // Redirect wenn ausgeloggt
+                                                if (dataObj.status === 'logout') {
+                                                        window.location.reload();
+                                                }
 
-							if (dataObj.status === 'ok') {
-								scene.zeug.verlassenWarnung.off();
+                                                if (dataObj.status === 'ok') {
+                                                        scene.zeug.verlassenWarnung.off();
 
-								// Redirect, when set. Else reload
-								if (typeof dataObj.redirect === 'undefined' || dataObj.redirect === null || dataObj.redirect === '') {
-									window.location.reload();
-								} else {									
-									window.location = dataObj.redirect;									
-								}
-							} else {
-								$('.error:not(.limitZeichenError)').remove();
-								var errorDiv = '<div class="error">';
-								if (dataObj.status === 'error') {
-									errorDiv += dataObj.error;
-								} else {
-									errorDiv += 'Es ist ein Fehler aufgetreten.';
-								}
-								errorDiv += '/<div>';
-								zielelement.prepend(errorDiv);
+                                                        // Redirect, when set. Else reload
+                                                        if (typeof dataObj.redirect === 'undefined' || dataObj.redirect === null || dataObj.redirect === '') {
+                                                                window.location.reload();
+                                                        } else {									
+                                                                window.location = dataObj.redirect;									
+                                                        }
+                                                } else {
+                                                        $('.error:not(.limitZeichenError)').remove();
+                                                        var errorDiv = '<div class="error">';
+                                                        if (dataObj.status === 'error') {
+                                                                errorDiv += dataObj.error;
+                                                        } else {
+                                                                errorDiv += 'Es ist ein Fehler aufgetreten.';
+                                                        }
+                                                        errorDiv += '/<div>';
+                                                        zielelement.prepend(errorDiv);
 
-								scene.zeug.verlassenWarnung.off();
-								scene.zeug.ladeBildEntfernen(document);
-								scene.formular.initLimitZeichen();
-							}
-						// Sonst wird das html-zeug in die Box geschrieben
-						} catch(e) {
+                                                        scene.zeug.verlassenWarnung.off();
+                                                        scene.zeug.ladeBildEntfernen(document);
+                                                        scene.formular.initLimitZeichen();
+                                                }
+                                        // Sonst wird das html-zeug in die Box geschrieben
+                                        } catch(e) {
 
-							zielelement.html(data);
+                                                zielelement.html(data);
 
-							scene.zeug.verlassenWarnung.off();
-							scene.zeug.ladeBildEntfernen(document);
-							scene.formular.initFormElemente();
-						}
-					}
-				});			
+                                                scene.zeug.verlassenWarnung.off();
+                                                scene.zeug.ladeBildEntfernen(document);
+                                                scene.formular.initFormElemente();
+                                        }
+                                }
+                            });			
 			// Ansonsten das Formular so abschicken			
 			} else  {
 				that.submit();

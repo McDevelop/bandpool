@@ -14,38 +14,37 @@
                             <span class="editAvatar"><a href="">Bearbeiten</a></span>
                         </div>
                     </div>
+                    
                     <div class="rightSide">
                         <div class="contentBox">
-                            <div class="headBar">
-                                Titel
-                                <span><a class="beFormularOeffnen" href="#bearbeiten"
-								    data-zielelement=".beProfileStandardInfo"
-									data-uri="<f:uri.action 
-									    action='editStandardInfo'
-										controller='{profile.typeAsString}'
-										absolute='TRUE'
-                                        arguments="{band: profile}"                         
-										/>">bearbeiten</a></span>
+                            <div class="beProfileStandardInfo beFormularBox">	
+                                <div class="headBar">
+                                    Titel
+                                    <span>
+                                        <a class="beFormularOeffnen" href="#bearbeiten"
+                                            data-zielelement=".beProfileStandardInfo"
+                                            data-uri="<f:uri.action action='editStandardInfo' controller='{profile.typeAsString}'
+                                                        absolute='TRUE' arguments='{band: profile}' />"
+                                                        >
+                                            bearbeiten
+                                        </a>
+                                    </span>
+                                </div>
+                            					
+                                <div class="grid-12-12">
+                                    <div class="grid-3-12 label">Herkunft:</div>
+                                    <div class="grid-9-12">{profile.country}</div>
+                                    <div class="grid-3-12 label">Label:</div>
+                                    <div class="grid-9-12">{profile.label}</div>
+                                    <div class="grid-3-12 label">Genre:</div>
+                                    <div class="grid-9-12">{profile.genre}</div>
+                                    <div class="grid-3-12 label">Vorbilder:</div>
+                                    <div class="grid-9-12">{profile.vorbilder}</div>
+                                </div>                          
                             </div>
-							<div class="beProfileStandardInfo">
-                                <ul>
-                                    <li class="line"><strong>Herkunft:</strong> Indianapolis, IN</li>
-                                    <li class="line"><strong>Land:</strong> USA</li>
-									<li class="line"><strong>Label:</strong> Sony Music</li>
-									<li class="line"><strong>Genre:</strong> <a href="">Alternative</a>, <a href="">Rock</a>, <a href="">Alternative</a></li>
-									<li class="line"><strong>Vorbilder:</strong> Coldplay, Rolling Stones</li>
-									<li id="last"><strong>Bio:</strong> Arise From The Fallen ist ein
-									Bandname, der unser Leben widerspiegelt.
-									Jeder von uns hat einige Ru¨ckschritte
-									erleiden mu¨ssen, aber wir sind immer 
-									wieder aufgestanden und haben unsere 
-									Energie, unseren Sinn und die Sicht auf
-									das Leben im Blickfeld... <a href="">mehr lesen</a></li>
-                                </ul>
-							<div>
                         </div>
+                  
                     </div>
-                </div>
                 <div class="contentBox">
                     <div class="headBar">
                         Titel
@@ -55,6 +54,25 @@
                         Inhalt...
                     </p>
                 </div>
+                <div class="contentBox">
+                    <div class="beProfileStatus">	
+                        <div class="headBar">
+                            Neuen Status                                    
+                        </div>
+                        
+                        <f:form class="beFormular" absolute="TRUE" action="newStatus" controller="band" name="status" object="status">
+                            <f:form.textarea rows="10" cols="20" property="content"/>
+                            <button href="#update" class="beFormularAbschicken" 
+                                           data-zielelement=".beProfileStatus"
+                                           data-uri="<f:uri.action action='newStatus' controller='{profile.typeAsString}'
+                                                        absolute='TRUE' arguments='{status: status,band: profile}' />"
+                                           >
+                                           bearbeiten
+                            </button>
+                        </f:form>
+                    </div>
+                </div>
+                    
                 <div class="contentBox">
                     <div class="headBar">
                         Titel
@@ -68,6 +86,6 @@
         </section>
     </div>
 	
-	<script>
-	    scene.formular.init();
-	</script>
+    <script>
+        scene.formular.init();
+    </script>

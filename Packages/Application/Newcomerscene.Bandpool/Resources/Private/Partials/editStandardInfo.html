@@ -1,14 +1,24 @@
+<div class="headBar">
+    Bearbeiten       
+</div>
+<div class="formular">        
+    <f:form class="beFormular" action="updateStandardInfo" controller="{profile.typeAsString}" absolute="TRUE" name="band" object="band">        
+        <div class="grid-12-12">
+            <div class="grid-3-12 label">Herkunft:</div>
+            <div class="grid-9-12"><f:form.textfield property="country" /></div>
+            <div class="grid-3-12 label">Label:</div>
+            <div class="grid-9-12"><f:form.textfield property="label" /></div>
+            <div class="grid-3-12 label">Genre:</div>
+            <div class="grid-9-12"><f:form.textfield property="genre" /></div>
+            <div class="grid-3-12 label">Vorbilder:</div>
+            <div class="grid-9-12"><f:form.textarea rows="10" cols="30" property="vorbilder" /></div>
+        </div>
+        <button href="#update" class="beFormularAbschicken" 
+                       data-zielelement=".beProfileStandardInfo"
+                       data-uri="<f:uri.action action='updateStandardInfo' controller='{profile.typeAsString}' absolute='TRUE' arguments='{profile: profile, band: band}' />"
+                       >
+                       bearbeiten
+        </button>
+    </f:form>
+</div>
 
-<ul>
-    <li class="line"><strong>Herkunft:</strong> Bla</li>
-    <li class="line"><strong>Land:</strong> USBlaBlaA</li>
-    <li class="line"><strong>Label:</strong> Sony BlaBlaMusic</li>
-    <li class="line"><strong>Genre:</strong> <a href="">AltBlaBlaernative</a>, <a href="">Rock</a>, <a href="">Alternative</a></li>
-    <li class="line"><strong>Vorbilder:</strong> ColdplayBlaBlaBla, Rolling Stones</li>
-    <li id="last"><strong>Bio:</strong> Arise From The Fallen ist ein
-    Bandname, der unser Leben widerspiegelBlaBlaBlaBlaBla
-    BlaBlaBlaBlaBlaBlaBlaBla
-    BlaBlaBlaBlaBla
-    Energie, unseren Sinn und die Sicht auf
-    das Leben im Blickfeld... <a href="">mehr lesen</a></li>
-</ul>

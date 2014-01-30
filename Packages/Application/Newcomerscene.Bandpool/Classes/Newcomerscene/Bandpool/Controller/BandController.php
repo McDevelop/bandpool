@@ -55,6 +55,37 @@ class BandController extends ProfileController
     {	    
         $this->view->assign('profile', $band);
     }
+    
+    /**
+     * newStatusAction
+     * @param \Newcomerscene\Bandpool\Domain\Model\Status $status
+     * @param \Newcomerscene\Bandpool\Domain\Model\Band $band
+     * @return void
+     */
+    public function newStatusAction(\Newcomerscene\Bandpool\Domain\Model\Status $status=NULL, \Newcomerscene\Bandpool\Domain\Model\Band $band)
+    {   
+        $band->setStatus($status);
+        
+        // Weiß grad nicht mehr ob ein update nötig ist
+        $this->bandRepository->update($band);
+        
+        
+    }
+    
+    /**
+     * updatet die Info der Band im Backend
+     *
+     * @param \Newcomerscene\Bandpool\Domain\Model\Band $band
+     * @return void
+     */
+    public function updateStandardInfoAction(\Newcomerscene\Bandpool\Domain\Model\Band $profile, \Newcomerscene\Bandpool\Domain\Model\Band $band)
+    {             
+        $profile->setLabel($band->getLabel());
+        $profile->setCountry($band->getCountry());
+        $profile->setGenre($band->getGenre());
+        $profile->setVorbilder($band->getVorbilder());
+        $this->bandRepository->update($profile);
+    }
 
     /**
      * Creates a new band

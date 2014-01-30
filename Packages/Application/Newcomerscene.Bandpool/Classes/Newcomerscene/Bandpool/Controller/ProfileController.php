@@ -124,7 +124,7 @@ class ProfileController extends \TYPO3\Flow\Mvc\Controller\ActionController
     public function newAction(\Newcomerscene\Bandpool\Domain\Model\User $user=NULL)
     {
         $this->view->assign("user", $user);
-    }
+    } 
 
     /**
      * @return void
