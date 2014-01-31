@@ -101,8 +101,7 @@ scene = {
 			});
 		}, // Ende scene.formular.initOeffnen
 
-		initAbschicken: function() {	
-                    log('test');
+		initAbschicken: function() {	                    
                     $(document).off('submit', '.beFormular').on('submit', '.beFormular', function(e) {
                             e.preventDefault();
                             scene.formular.abschicken( $(this) );
@@ -134,11 +133,11 @@ scene = {
                                                 window.location.reload();
                                         }
                                 },
-                                success: function(data) {
+                                success: function(data) {                                                                                             
                                         // Wenn ein Objekt zur�ckkommt, dann wird die Seite neu geladen.
                                         try {
                                                 var dataObj = jQuery.parseJSON(data);
-
+                                                
                                                 // Redirect wenn ausgeloggt
                                                 if (dataObj.status === 'logout') {
                                                         window.location.reload();
@@ -170,7 +169,7 @@ scene = {
                                                 }
                                         // Sonst wird das html-zeug in die Box geschrieben
                                         } catch(e) {
-
+                                            log('test');
                                                 zielelement.html(data);
 
                                                 scene.zeug.verlassenWarnung.off();

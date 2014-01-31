@@ -92,6 +92,8 @@ class BandController extends ProfileController
     public function updateStandardInfoAction(\Newcomerscene\Bandpool\Domain\Model\Band $band)
     {   
         $this->bandRepository->update($band);
+        
+        return json_encode(array('status' => 'ok'));
     }
 
     /**
