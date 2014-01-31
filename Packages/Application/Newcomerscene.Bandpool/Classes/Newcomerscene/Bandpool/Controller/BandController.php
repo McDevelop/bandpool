@@ -53,7 +53,7 @@ class BandController extends ProfileController
      */
     public function editStandardInfoAction($band)
     {	    
-        $this->view->assign('profile', $band);
+        $this->view->assign('band', $band);
     }
     
     /**
@@ -72,19 +72,26 @@ class BandController extends ProfileController
         
     }
     
+    protected function initializeupdateStandardInfoAction() {
+        $commentConfiguration = $this->arguments['band']->getPropertyMappingConfiguration();
+        $commentConfiguration->allowAllProperties();
+        $commentConfiguration
+                ->setTypeConverterOption(
+                'TYPO3\Flow\Property\TypeConverter\PersistentObjectConverter',
+                \TYPO3\Flow\Property\TypeConverter\PersistentObjectConverter::CONFIGURATION_MODIFICATION_ALLOWED,
+                TRUE
+        );
+    }
+    
     /**
      * updatet die Info der Band im Backend
      *
      * @param \Newcomerscene\Bandpool\Domain\Model\Band $band
      * @return void
      */
-    public function updateStandardInfoAction(\Newcomerscene\Bandpool\Domain\Model\Band $profile, \Newcomerscene\Bandpool\Domain\Model\Band $band)
-    {             
-        $profile->setLabel($band->getLabel());
-        $profile->setCountry($band->getCountry());
-        $profile->setGenre($band->getGenre());
-        $profile->setVorbilder($band->getVorbilder());
-        $this->bandRepository->update($profile);
+    public function updateStandardInfoAction(\Newcomerscene\Bandpool\Domain\Model\Band $band)
+    {   
+        $this->bandRepository->update($band);
     }
 
     /**
@@ -110,15 +117,28 @@ class BandController extends ProfileController
     /**
      * Creates a new image
      *
+     * @param \Newcomerscene\Bandpool\Domain\Model\Band $profile Edit the Bandphoto
+     * @return void
+     */
+    public function editAvatarAction(\Newcomerscene\Bandpool\Domain\Model\Band $profile)
+    {
+       $this->view->assign('band', $profile); 
+    }
+    
+    /**
+     * Creates a new image
+     *
      * @param \Newcomerscene\Bandpool\Domain\Model\Band $band Edit the Bandphoto
      * @return void
      */
-    public function editBandPhotoAction(\Newcomerscene\Bandpool\Domain\Model\Band $band)
+    public function updateAvatarAction(\Newcomerscene\Bandpool\Domain\Model\Band $band)
     {
-        #$image = $band->getImage();
+        
         // Image wird hier noch bearbeitet per $band->getImage
-
-        $this->bandRepository->update($band);
-        $this->redirect('show', 'Band');
-    }
+        
+        $this->bandRepository->update($band);  
+        $this->redirect('show', 'Profile');
+       
+    }  
+    
 }

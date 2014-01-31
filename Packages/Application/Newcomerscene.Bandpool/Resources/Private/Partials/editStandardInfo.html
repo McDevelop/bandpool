@@ -1,24 +1,12 @@
-<div class="headBar">
-    Bearbeiten       
+<div class="grid-12-12">
+    <div class="grid-3-12 label">Herkunft:</div>
+    <div class="grid-9-12"><f:form.textfield property="country" /></div>
+    <div class="grid-3-12 label">Label:</div>
+    <div class="grid-9-12"><f:form.textfield property="label" /></div>
+    <div class="grid-3-12 label">Genre:</div>
+    <div class="grid-9-12"><f:form.textfield property="genre" /></div>
+    <div class="grid-3-12 label">Vorbilder:</div>
+    <div class="grid-9-12"><f:form.textarea rows="10" cols="30" property="vorbilder" /></div>
 </div>
-<div class="formular">        
-    <f:form class="beFormular" action="updateStandardInfo" controller="{profile.typeAsString}" absolute="TRUE" name="band" object="band">        
-        <div class="grid-12-12">
-            <div class="grid-3-12 label">Herkunft:</div>
-            <div class="grid-9-12"><f:form.textfield property="country" /></div>
-            <div class="grid-3-12 label">Label:</div>
-            <div class="grid-9-12"><f:form.textfield property="label" /></div>
-            <div class="grid-3-12 label">Genre:</div>
-            <div class="grid-9-12"><f:form.textfield property="genre" /></div>
-            <div class="grid-3-12 label">Vorbilder:</div>
-            <div class="grid-9-12"><f:form.textarea rows="10" cols="30" property="vorbilder" /></div>
-        </div>
-        <button href="#update" class="beFormularAbschicken" 
-                       data-zielelement=".beProfileStandardInfo"
-                       data-uri="<f:uri.action action='updateStandardInfo' controller='{profile.typeAsString}' absolute='TRUE' arguments='{profile: profile, band: band}' />"
-                       >
-                       bearbeiten
-        </button>
-    </f:form>
-</div>
+       
 

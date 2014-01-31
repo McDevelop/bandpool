@@ -10,16 +10,16 @@
     <f:if condition="{band.image.originalResource}">	
         Show das Image her:	
         <img src="{f:uri.resource(resource: band.image.originalResource)}" />
-    </f:if>
+    </f:if> -->
 
-    <f:form method="post" action="editBandPhoto" controller="Band" object="{band}" name="band" enctype="multipart/form-data">
+    <f:form method="post" absolute="TRUE" action="editBandPhoto" controller="Band" object="{band}" name="band" enctype="multipart/form-data">
 
         <f:form.textfield property="image.title" value="My Image title" />
         <f:form.upload property="image.originalResource"/>
 
         <f:form.submit value="Submit upload"/>
     </f:form>
-
+<!--
     <f:form method="post" action="createBand" controller="Band" object="{newBand}" name="newBand" >
         <f:form.textfield property="name" value="My Band Name" />
         <f:form.textfield property="genre" value="Genre auswählen" />

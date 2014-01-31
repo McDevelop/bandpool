@@ -1,1 +1,15 @@
-<f:render partial="editStandardInfo" arguments="{_all}" />   
+<div class="headBar">
+    Bearbeiten       
+</div>
+<div class="formular">        
+    <f:form class="beFormular" action="updateStandardInfo" controller="band" absolute="TRUE" name="band" object="band"> 
+        <f:render partial="editStandardInfo" arguments="{profile: band}" />   
+         <button href="#update" class="beFormularAbschicken" 
+                       data-zielelement=".beProfileStandardInfo"
+                       data-uri="<f:uri.action action='updateStandardInfo' controller='band' absolute='TRUE' arguments='{band: band}' />"
+                       >
+                       bearbeiten
+        </button>
+        <a href="#schliessen" class="beFormularSchliessen" >abbrechen</a>
+    </f:form>
+</div>

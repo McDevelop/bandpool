@@ -9,9 +9,16 @@
                 </div>
                 <div class="clearfix">
                     <div class="leftSide">
-                        <div class="avatar">
+                        <div class="avatar beProfileAvatar beFormularBox">
+                            <f:if condition="{profile.image.originalResource}">                         	
+                                <!--img src="{f:uri.resource(resource: profile.image.originalResource)}" /-->
+                            </f:if>
                             <img src="{f:uri.resource(path: 'img/band_avatar.jpg', package: 'Newcomerscene.Bandpool')}" alt="Bild">
-                            <span class="editAvatar"><a href="">Bearbeiten</a></span>
+                            <span class="editAvatar"><a class="beFormularOeffnen" href="#bearbeiten"
+                                            data-zielelement=".beProfileAvatar"
+                                            data-uri="<f:uri.action action='editAvatar' controller='{profile.typeAsString}'
+                                                        absolute='TRUE' arguments='{profile: profile}' />"
+                                                        >Bearbeiten</a></span>
                         </div>
                     </div>
                     
@@ -42,45 +49,47 @@
                                     <div class="grid-9-12">{profile.vorbilder}</div>
                                 </div>                          
                             </div>
+                            <div class="clear"></div>
+                        </div>                
+                   
+                        <div class="contentBox">
+                            <div class="headBar">
+                                Titel
+                                <span><a href="">Bearbeiten</a></span>
+                            </div>
+                            <p>
+                                Inhalt...
+                            </p>
                         </div>
-                  
+                        <div class="contentBox">
+                            <div class="headBar">
+                                Titel
+                                <span><a href="">Bearbeiten</a></span>
+                            </div>
+                            <p>
+                                Inhalt...
+                            </p>
+                        </div>                        
                     </div>
-                <div class="contentBox">
-                    <div class="headBar">
-                        Titel
-                        <span><a href="">Bearbeiten</a></span>
+                    <div class="clear"></div>
+                    <div class="contentBox">
+                        <div class="beProfileStatus">	
+                            <div class="headBar">
+                                Neuen Status                                    
+                            </div>
+
+                            <f:form class="beFormular" absolute="TRUE" action="newStatus" controller="band" name="status" object="status">
+                                <f:form.textarea rows="10" cols="20" property="content"/>
+                                <button href="#update" class="beFormularAbschicken" 
+                                               data-zielelement=".beProfileStatus"
+                                               data-uri="<f:uri.action action='newStatus' controller='{profile.typeAsString}'
+                                                            absolute='TRUE' arguments='{status: status,band: profile}' />"
+                                               >
+                                               bearbeiten
+                                </button>
+                            </f:form>
+                        </div>                        
                     </div>
-                    <p>
-                        Inhalt...
-                    </p>
-                </div>
-                <div class="contentBox">
-                    <div class="beProfileStatus">	
-                        <div class="headBar">
-                            Neuen Status                                    
-                        </div>
-                        
-                        <f:form class="beFormular" absolute="TRUE" action="newStatus" controller="band" name="status" object="status">
-                            <f:form.textarea rows="10" cols="20" property="content"/>
-                            <button href="#update" class="beFormularAbschicken" 
-                                           data-zielelement=".beProfileStatus"
-                                           data-uri="<f:uri.action action='newStatus' controller='{profile.typeAsString}'
-                                                        absolute='TRUE' arguments='{status: status,band: profile}' />"
-                                           >
-                                           bearbeiten
-                            </button>
-                        </f:form>
-                    </div>
-                </div>
-                    
-                <div class="contentBox">
-                    <div class="headBar">
-                        Titel
-                        <span><a href="">Bearbeiten</a></span>
-                    </div>
-                    <p>
-                        Inhalt...
-                    </p>
                 </div>
             </div>
         </section>

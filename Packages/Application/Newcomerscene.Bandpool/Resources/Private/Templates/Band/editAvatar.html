@@ -1,0 +1,7 @@
+<div class="formular">        
+    <f:form absolute="TRUE" method="post" action="updateAvatar" controller="band" object="{band}" name="band" enctype="multipart/form-data">
+        <f:render partial="editAvatar" arguments="{profile: band}" />
+        <f:form.submit value="Submit upload"/>
+        <a href="#schliessen" class="beFormularSchliessen" >abbrechen</a>
+    </f:form>
+</div>

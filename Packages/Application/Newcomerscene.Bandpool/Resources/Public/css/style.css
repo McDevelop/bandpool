@@ -597,6 +597,10 @@ header {
 .beFormularBox {
     position: relative;
 }
+
+.clear {
+    clear: both;
+}
 /*
  *
  *
